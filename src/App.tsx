@@ -3,9 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
-  INITIAL_LISTINGS,
   INITIAL_NOTIFICATIONS,
   INITIAL_THREADS,
 } from './data/mockListings';
@@ -16,6 +15,14 @@ import type {
   NotificationItem,
   RouteView,
 } from './types/marketplace';
+import {
+  createListing,
+  deleteListing,
+  fetchListing,
+  fetchListings,
+  submitListingMessage,
+  type NewListingInput,
+} from './lib/marketplace-api';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { HomePage } from './components/HomePage';
@@ -26,6 +33,7 @@ import { NotificationsPage } from './components/NotificationsPage';
 import { InboxPage } from './components/InboxPage';
 import { YourListingsPage } from './components/YourListingsPage';
 import { ToastNotification } from './components/ToastNotification';
+import { ListingDetailSkeleton } from './components/ui/LoadingSkeleton';
 import {
   InfoModal,
   LocationModal,
@@ -45,26 +53,23 @@ function loadStored<T>(key: string, fallback: T): T {
 export default function App() {
   const [activeRoute, setActiveRoute] = useState<RouteView>('home');
   const [previousRoute, setPreviousRoute] = useState<RouteView>('home');
+  const [storageReady, setStorageReady] = useState(false);
 
-  const [listings, setListings] = useState<Listing[]>(() =>
-    loadStored('mp_listings_v2', INITIAL_LISTINGS)
-  );
-  const [savedIds, setSavedIds] = useState<string[]>(() =>
-    loadStored('mp_saved_v2', ['f8ccdd18'])
-  );
-  const [drafts, setDrafts] = useState<DraftListing[]>(() =>
-    loadStored('mp_drafts_v2', [])
-  );
-  const [threads, setThreads] = useState<MessageThread[]>(() =>
-    loadStored('mp_threads_v2', INITIAL_THREADS)
-  );
-  const [notifications, setNotifications] = useState<NotificationItem[]>(() =>
-    loadStored('mp_notifications_v2', INITIAL_NOTIFICATIONS)
-  );
+  const [listings, setListings] = useState<Listing[]>([]);
+  const [listingsLoading, setListingsLoading] = useState(true);
+  const [listingsError, setListingsError] = useState<string | null>(null);
+  const [createdListingIds, setCreatedListingIds] = useState<string[]>([]);
+  const [listingOwnerTokens, setListingOwnerTokens] = useState<Record<string, string>>({});
+  const [savedIds, setSavedIds] = useState<string[]>(['f8ccdd18']);
+  const [drafts, setDrafts] = useState<DraftListing[]>([]);
+  const [threads, setThreads] = useState<MessageThread[]>(INITIAL_THREADS);
+  const [notifications, setNotifications] =
+    useState<NotificationItem[]>(INITIAL_NOTIFICATIONS);
 
-  const [selectedListingId, setSelectedListingId] = useState<string>(
-    INITIAL_LISTINGS[0].id
-  );
+  const [selectedListing, setSelectedListing] = useState<Listing | null>(null);
+  const [detailLoading, setDetailLoading] = useState(false);
+  const [detailError, setDetailError] = useState<string | null>(null);
+  const detailRequestId = useRef(0);
   const [browseQuery, setBrowseQuery] = useState<string>('laptop');
   const [browseCategory, setBrowseCategory] = useState<string | undefined>(
     undefined
@@ -94,46 +99,110 @@ export default function App() {
   }>({ visible: false, title: 'Bike for sale' });
 
   useEffect(() => {
-    try {
-      localStorage.setItem('mp_listings_v2', JSON.stringify(listings));
-    } catch {
-      // Ignore storage quota errors
-    }
-  }, [listings]);
+    setCreatedListingIds(loadStored('mp_created_listing_ids_v1', []));
+    setListingOwnerTokens(loadStored('mp_listing_owner_tokens_v1', {}));
+    setSavedIds(loadStored('mp_saved_v2', ['f8ccdd18']));
+    setDrafts(loadStored('mp_drafts_v2', []));
+    setThreads(loadStored('mp_threads_v2', INITIAL_THREADS));
+    setNotifications(loadStored('mp_notifications_v2', INITIAL_NOTIFICATIONS));
+    setStorageReady(true);
+  }, []);
 
   useEffect(() => {
+    let isCurrentRequest = true;
+    if (!storageReady || (activeRoute !== 'home' && activeRoute !== 'browse')) {
+      return;
+    }
+
+    setListingsLoading(true);
+    setListingsError(null);
+    fetchListings(
+      activeRoute === 'browse'
+        ? { query: browseQuery, category: browseCategory }
+        : {}
+    )
+      .then((loadedListings) => {
+        if (!isCurrentRequest) return;
+        setListings(
+          loadedListings.map((listing) => ({
+            ...listing,
+            isUserOwned: createdListingIds.includes(listing.id),
+          }))
+        );
+      })
+      .catch((error: unknown) => {
+        if (!isCurrentRequest) return;
+        setListingsError(
+          error instanceof Error
+            ? error.message
+            : 'Listings could not be loaded. Please try again.'
+        );
+      })
+      .finally(() => {
+        if (isCurrentRequest) setListingsLoading(false);
+      });
+
+    return () => {
+      isCurrentRequest = false;
+    };
+  }, [storageReady, activeRoute, browseQuery, browseCategory, createdListingIds]);
+
+  useEffect(() => {
+    if (!storageReady) return;
+    try {
+      localStorage.setItem('mp_created_listing_ids_v1', JSON.stringify(createdListingIds));
+    } catch {
+      // Ignore storage quota errors.
+    }
+  }, [storageReady, createdListingIds]);
+
+  useEffect(() => {
+    if (!storageReady) return;
+    try {
+      localStorage.setItem('mp_listing_owner_tokens_v1', JSON.stringify(listingOwnerTokens));
+    } catch {
+      // Keep the listing usable if browser storage is unavailable.
+    }
+  }, [storageReady, listingOwnerTokens]);
+
+  useEffect(() => {
+    if (!storageReady) return;
     try {
       localStorage.setItem('mp_saved_v2', JSON.stringify(savedIds));
     } catch {
       // Ignore
     }
-  }, [savedIds]);
+  }, [storageReady, savedIds]);
 
   useEffect(() => {
+    if (!storageReady) return;
     try {
       localStorage.setItem('mp_drafts_v2', JSON.stringify(drafts));
     } catch {
       // Ignore
     }
-  }, [drafts]);
+  }, [storageReady, drafts]);
 
   useEffect(() => {
+    if (!storageReady) return;
     try {
       localStorage.setItem('mp_threads_v2', JSON.stringify(threads));
     } catch {
       // Ignore
     }
-  }, [threads]);
+  }, [storageReady, threads]);
 
   useEffect(() => {
+    if (!storageReady) return;
     try {
       localStorage.setItem('mp_notifications_v2', JSON.stringify(notifications));
     } catch {
       // Ignore
     }
-  }, [notifications]);
+  }, [storageReady, notifications]);
 
   const navigateTo = (route: RouteView) => {
+    if (route !== 'listing-detail') detailRequestId.current += 1;
     if (route !== activeRoute && activeRoute !== 'listing-detail') {
       setPreviousRoute(activeRoute);
     }
@@ -150,13 +219,35 @@ export default function App() {
     );
   };
 
-  const handleSelectListing = (listing: Listing) => {
+  const handleSelectListing = async (listing: Listing) => {
     if (activeRoute !== 'listing-detail') {
       setPreviousRoute(activeRoute);
     }
-    setSelectedListingId(listing.id);
+    const requestId = ++detailRequestId.current;
+    setSelectedListing(null);
+    setDetailError(null);
+    setDetailLoading(true);
     setActiveRoute('listing-detail');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    try {
+      const fetchedListing = await fetchListing(listing.id);
+      if (requestId === detailRequestId.current) {
+        setSelectedListing({
+          ...fetchedListing,
+          isUserOwned: createdListingIds.includes(fetchedListing.id),
+        });
+      }
+    } catch (error) {
+      if (requestId === detailRequestId.current) {
+        setDetailError(
+          error instanceof Error
+            ? error.message
+            : 'This listing could not be loaded.'
+        );
+      }
+    } finally {
+      if (requestId === detailRequestId.current) setDetailLoading(false);
+    }
   };
 
   const handleSearchToBrowse = (query: string, category?: string) => {
@@ -165,7 +256,16 @@ export default function App() {
     navigateTo('browse');
   };
 
-  const handlePublishListing = (newListing: Listing) => {
+  const handlePublishListing = async (input: NewListingInput) => {
+    const created = await createListing(input);
+    const { ownerToken, ...listing } = created;
+    const newListing = {
+      ...listing,
+      isUserOwned: true,
+    };
+    setListingOwnerTokens((prev) => ({ ...prev, [newListing.id]: ownerToken }));
+    const nextCreatedIds = [...new Set([...createdListingIds, newListing.id])];
+    setCreatedListingIds(nextCreatedIds);
     setListings((prev) => [newListing, ...prev]);
     if (activeDraft) {
       setDrafts((prev) => prev.filter((d) => d.id !== activeDraft.id));
@@ -191,6 +291,21 @@ export default function App() {
     navigateTo('home');
   };
 
+  const handleDeleteListing = async (listingId: string) => {
+    const ownerToken = listingOwnerTokens[listingId];
+    if (!ownerToken) throw new Error('This browser no longer has the owner key for this listing.');
+    await deleteListing(listingId, ownerToken);
+    setListingOwnerTokens((prev) => {
+      const next = { ...prev };
+      delete next[listingId];
+      return next;
+    });
+    setCreatedListingIds((prev) => prev.filter((id) => id !== listingId));
+    setListings((prev) => prev.filter((listing) => listing.id !== listingId));
+    setSavedIds((prev) => prev.filter((id) => id !== listingId));
+    if (selectedListing?.id === listingId) setSelectedListing(null);
+  };
+
   const handleSaveDraft = (draft: DraftListing) => {
     setDrafts((prev) => {
       const exists = prev.some((d) => d.id === draft.id);
@@ -201,11 +316,16 @@ export default function App() {
     });
   };
 
-  const handleSendMessage = (
+  const handleSendMessage = async (
     listing: Listing,
     buyerEmail: string,
     text: string
-  ) => {
+  ): Promise<void> => {
+    await submitListingMessage({
+      listingId: listing.id,
+      buyerEmail,
+      message: text,
+    });
     const nowLabel = new Date().toLocaleTimeString([], {
       hour: 'numeric',
       minute: '2-digit',
@@ -290,9 +410,6 @@ export default function App() {
     );
   };
 
-  const selectedListing =
-    listings.find((l) => l.id === selectedListingId) || listings[0];
-
   const unreadNotifications = notifications.filter((n) => !n.read).length;
   const unreadMessages = threads.filter((t) => t.unread).length;
 
@@ -306,9 +423,15 @@ export default function App() {
       />
 
       <main className="flex-1 w-full pt-16">
+        {listingsError && (activeRoute === 'home' || activeRoute === 'browse') && (
+          <p role="alert" className="max-w-7xl mx-auto px-4 sm:px-8 py-3 text-sm font-semibold text-[#ba1a1a]">
+            {listingsError}
+          </p>
+        )}
         {activeRoute === 'home' && (
           <HomePage
             listings={listings}
+            isLoading={listingsLoading}
             savedIds={savedIds}
             onToggleSave={handleToggleSave}
             onSelectListing={handleSelectListing}
@@ -334,10 +457,12 @@ export default function App() {
         {activeRoute === 'browse' && (
           <BrowsePage
             listings={listings}
+            isLoading={listingsLoading}
             savedIds={savedIds}
             onToggleSave={handleToggleSave}
             onSelectListing={handleSelectListing}
             onNavigate={navigateTo}
+            onSearchListings={handleSearchToBrowse}
             initialQuery={browseQuery}
             initialCategory={browseCategory}
             locationLabel={locationLabel}
@@ -354,6 +479,14 @@ export default function App() {
           />
         )}
 
+        {activeRoute === 'listing-detail' && detailLoading && (
+          <ListingDetailSkeleton />
+        )}
+        {activeRoute === 'listing-detail' && detailError && (
+          <p role="alert" className="max-w-7xl mx-auto px-4 sm:px-8 py-6 text-sm font-semibold text-[#ba1a1a]">
+            {detailError}
+          </p>
+        )}
         {activeRoute === 'listing-detail' && selectedListing && (
           <ListingDetailPage
             listing={selectedListing}
@@ -425,6 +558,8 @@ export default function App() {
             }
             onCreateNew={() => navigateTo('create-listing')}
             onToggleSave={handleToggleSave}
+            onDeleteListing={handleDeleteListing}
+            deletableListingIds={Object.keys(listingOwnerTokens)}
           />
         )}
       </main>

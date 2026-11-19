@@ -16,13 +16,16 @@ import {
 } from 'lucide-react';
 import type { ItemCondition, Listing, RouteView } from '../types/marketplace';
 import { SafeImage } from './SafeImage';
+import { LoadingSkeleton } from './ui/LoadingSkeleton';
 
 interface BrowsePageProps {
   listings: Listing[];
+  isLoading?: boolean;
   savedIds: string[];
   onToggleSave: (id: string) => void;
   onSelectListing: (listing: Listing) => void;
   onNavigate: (route: RouteView) => void;
+  onSearchListings: (query: string, category?: string) => void;
   initialQuery: string;
   initialCategory?: string;
   locationLabel: string;
@@ -43,10 +46,12 @@ type DateFilter = 'all' | '24h' | '7d' | '30d';
 
 export function BrowsePage({
   listings,
+  isLoading = false,
   savedIds,
   onToggleSave,
   onSelectListing,
   onNavigate,
+  onSearchListings,
   initialQuery,
   initialCategory,
   locationLabel,
@@ -100,6 +105,7 @@ export function BrowsePage({
     e.preventDefault();
     setIsSearching(true);
     setSearchQuery(inputQuery.trim());
+    onSearchListings(inputQuery.trim(), selectedCategory || undefined);
     setTimeout(() => setIsSearching(false), 260);
   };
 
@@ -551,20 +557,8 @@ export function BrowsePage({
         </div>
 
         {/* Main Result Cards Grid (with loading & empty handling) */}
-        {isSearching ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5 w-full">
-            {[1, 2, 3, 4].map((n) => (
-              <div
-                key={n}
-                className="bg-white rounded-xl p-3 shadow-sm flex flex-col gap-2 animate-pulse"
-              >
-                <div className="w-full aspect-square bg-[#e6e8eb] rounded-lg" />
-                <div className="w-1/2 h-5 bg-[#e6e8eb] rounded mt-1" />
-                <div className="w-full h-4 bg-[#e6e8eb] rounded" />
-                <div className="w-2/3 h-3 bg-[#e6e8eb] rounded" />
-              </div>
-            ))}
-          </div>
+        {isLoading || isSearching ? (
+          <LoadingSkeleton count={4} className="w-full" />
         ) : filteredListings.length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5 w-full">
             {filteredListings.map((item) => {

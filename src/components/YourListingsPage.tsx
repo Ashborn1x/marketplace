@@ -12,6 +12,8 @@ interface YourListingsPageProps {
   onDeleteDraft: (draftId: string) => void;
   onCreateNew: () => void;
   onToggleSave: (id: string) => void;
+  onDeleteListing: (id: string) => Promise<void>;
+  deletableListingIds: string[];
 }
 
 export function YourListingsPage({
@@ -23,8 +25,12 @@ export function YourListingsPage({
   onDeleteDraft,
   onCreateNew,
   onToggleSave,
+  onDeleteListing,
+  deletableListingIds,
 }: YourListingsPageProps) {
   const [tab, setTab] = useState<'selling' | 'saved' | 'drafts'>('selling');
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
 
   const userListings = listings.filter((l) => l.isUserOwned);
   const savedListings = listings.filter((l) => savedIds.includes(l.id));
@@ -91,6 +97,9 @@ export function YourListingsPage({
       {/* Tab Content */}
       {tab === 'selling' && (
         <>
+          {deleteError && (
+            <p role="alert" className="mb-3 text-[13px] text-[#ba1a1a]">{deleteError}</p>
+          )}
           {userListings.length === 0 ? (
             <div className="bg-white rounded-xl p-10 shadow-sm text-center">
               <Bookmark className="w-10 h-10 text-[#0050cd] mx-auto mb-2.5 opacity-80" />
@@ -134,6 +143,29 @@ export function YourListingsPage({
                     <p className="text-[12px] text-[#727687] mt-1">
                       {item.listedLabel} • {item.location}
                     </p>
+                    {deletableListingIds.includes(item.id) && (
+                      <button
+                        type="button"
+                        disabled={deletingId === item.id}
+                        onClick={async (event) => {
+                          event.stopPropagation();
+                          if (!window.confirm(`Delete “${item.title}”? This cannot be undone.`)) return;
+                          setDeletingId(item.id);
+                          setDeleteError(null);
+                          try {
+                            await onDeleteListing(item.id);
+                          } catch (error) {
+                            setDeleteError(error instanceof Error ? error.message : 'The listing could not be deleted.');
+                          } finally {
+                            setDeletingId(null);
+                          }
+                        }}
+                        className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#ba1a1a] hover:text-[#8b1111] disabled:opacity-50 cursor-pointer"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                        {deletingId === item.id ? 'Deleting…' : 'Delete listing'}
+                      </button>
+                    )}
                   </div>
                 </article>
               ))}

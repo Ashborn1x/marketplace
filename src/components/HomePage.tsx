@@ -15,9 +15,11 @@ import type { Listing, RouteView } from '../types/marketplace';
 import { QUICK_FILTER_CHIPS, SIDEBAR_CATEGORIES } from '../data/mockListings';
 import { CategoryIcon } from './CategoryIcon';
 import { SafeImage } from './SafeImage';
+import { LoadingSkeleton } from './ui/LoadingSkeleton';
 
 interface HomePageProps {
   listings: Listing[];
+  isLoading?: boolean;
   savedIds: string[];
   onToggleSave: (id: string) => void;
   onSelectListing: (listing: Listing) => void;
@@ -32,6 +34,7 @@ interface HomePageProps {
 
 export function HomePage({
   listings,
+  isLoading = false,
   savedIds,
   onToggleSave,
   onSelectListing,
@@ -224,7 +227,9 @@ export function HomePage({
         </div>
 
         {/* High Density Product Grid */}
-        {filteredListings.length > 0 ? (
+        {isLoading ? (
+          <LoadingSkeleton count={8} />
+        ) : filteredListings.length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
             {filteredListings.map((item) => {
               const isSaved = savedIds.includes(item.id);

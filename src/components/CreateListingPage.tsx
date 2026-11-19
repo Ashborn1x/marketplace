@@ -22,36 +22,69 @@ import {
   X,
   Image as ImageIcon,
 } from 'lucide-react';
-import type { DraftListing, ItemCondition, Listing } from '../types/marketplace';
-import { BIKE_IMAGES } from '../data/mockListings';
+import type { DraftListing, ItemCondition } from '../types/marketplace';
 import { SafeImage } from './SafeImage';
+import type { NewListingInput } from '../lib/marketplace-api';
+import {
+  detectImageType,
+  IMAGE_MAX_BYTES,
+  isValidEmail,
+  LISTING_CATEGORIES,
+} from '../lib/marketplace-validation';
 
 interface CreateListingPageProps {
   onBack: () => void;
-  onPublish: (listing: Listing) => void;
+  onPublish: (input: NewListingInput) => Promise<void>;
   onSaveDraft: (draft: DraftListing) => void;
   initialDraft?: DraftListing | null;
 }
 
-const CATEGORIES = [
-  'Sporting Goods',
-  'Bicycles & Accessories',
-  'Electronics & Computers',
-  'Vehicles & Parts',
-  'Home & Garden',
-  'Clothing & Shoes',
-  'Hobbies & Toys',
-];
+const CATEGORIES = LISTING_CATEGORIES;
 
 const CONDITIONS: ItemCondition[] = ['New', 'Like New', 'Good', 'Fair'];
 
-function mapCategoryToChip(cat: string): string {
-  if (cat.includes('Electronics')) return 'Electronics';
-  if (cat.includes('Vehicles')) return 'Vehicles';
-  if (cat.includes('Home')) return 'Home & Garden';
-  if (cat.includes('Clothing')) return 'Clothing';
-  if (cat.includes('Sporting') || cat.includes('Bicycles')) return 'Sports & Outdoors';
-  return 'Other';
+async function prepareImageForUpload(file: File): Promise<File> {
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  const detectedType = detectImageType(bytes);
+  if (detectedType) return new File([file], file.name, { type: detectedType });
+
+  let bitmap: ImageBitmap;
+  try {
+    bitmap = await createImageBitmap(file);
+  } catch {
+    throw new Error(
+      `The selected file “${file.name}” could not be decoded as an image. Please choose a JPEG, PNG, or WebP image.`
+    );
+  }
+
+  const canvas = document.createElement('canvas');
+  canvas.width = bitmap.width;
+  canvas.height = bitmap.height;
+  const context = canvas.getContext('2d');
+  if (!context) {
+    bitmap.close();
+    throw new Error('The selected image could not be prepared for upload.');
+  }
+  context.drawImage(bitmap, 0, 0);
+  bitmap.close();
+
+  let blob: Blob | null = null;
+  for (const quality of [0.92, 0.82, 0.72]) {
+    blob = await new Promise<Blob | null>((resolve) =>
+      canvas.toBlob(resolve, 'image/jpeg', quality)
+    );
+    if (blob && blob.size <= IMAGE_MAX_BYTES) break;
+  }
+
+  if (!blob || blob.size > IMAGE_MAX_BYTES) {
+    throw new Error('The prepared image must be 5MB or smaller.');
+  }
+
+  const baseName = file.name.replace(/\.[^.]+$/, '') || 'listing-image';
+  return new File([blob], `${baseName}.jpg`, {
+    type: 'image/jpeg',
+    lastModified: file.lastModified,
+  });
 }
 
 export function CreateListingPage({
@@ -60,52 +93,90 @@ export function CreateListingPage({
   onSaveDraft,
   initialDraft,
 }: CreateListingPageProps) {
-  const [title, setTitle] = useState(initialDraft?.title ?? 'Bike for sale');
+  const [title, setTitle] = useState(initialDraft?.title ?? '');
   const [category, setCategory] = useState(
     initialDraft?.category ?? 'Sporting Goods'
   );
-  const [price, setPrice] = useState(initialDraft?.price ?? '120');
+  const [price, setPrice] = useState(initialDraft?.price ?? '');
   const [location, setLocation] = useState(
     initialDraft?.location ?? 'Palo Alto, CA'
   );
   const [email, setEmail] = useState(
-    initialDraft?.email ?? 'gwientjes@gmail.com'
+    initialDraft?.email ?? ''
   );
   const [description, setDescription] = useState(
-    initialDraft?.description ?? 'Good condition. Pick up on campus!'
+    initialDraft?.description ?? ''
   );
   const [condition, setCondition] = useState<ItemCondition>(
     initialDraft?.condition ?? 'Like New'
   );
-  const [images, setImages] = useState<string[]>(
-    initialDraft?.images ?? [BIKE_IMAGES.suburban]
+  const [images, setImages] = useState<string[]>(initialDraft?.images ?? []);
+  const [imageFiles, setImageFiles] = useState<(File | null)[]>(() =>
+    initialDraft?.images.map(() => null) ?? []
   );
   const [previewDevice, setPreviewDevice] = useState<'desktop' | 'mobile'>(
     'desktop'
   );
   const [draftSavedNotice, setDraftSavedNotice] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [isPublishing, setIsPublishing] = useState(false);
 
-  const handleFileUpload = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (!files || files.length === 0) return;
-
-    Array.from(files).forEach((file) => {
-      if (images.length >= 10) return;
-      const reader = new FileReader();
-      reader.onload = (ev) => {
-        const result = ev.target?.result;
-        if (typeof result === 'string') {
-          setImages((prev) => (prev.length < 10 ? [...prev, result] : prev));
-        }
-      };
-      reader.readAsDataURL(file);
-    });
+    const availableSlots = Math.max(0, 10 - images.length);
+    const selectedFiles = Array.from(files).slice(0, availableSlots);
     e.target.value = '';
+
+    if (selectedFiles.length === 0) {
+      setErrorMsg('You can upload up to 10 listing images.');
+      return;
+    }
+    if (selectedFiles.some((file) => file.size === 0 || file.size > IMAGE_MAX_BYTES)) {
+      setErrorMsg('Each image must be 5MB or smaller.');
+      return;
+    }
+
+    let preparedFiles: File[];
+    try {
+      preparedFiles = await Promise.all(selectedFiles.map(prepareImageForUpload));
+    } catch (error) {
+      setErrorMsg(
+        error instanceof Error
+          ? error.message
+          : 'Could not prepare the selected image. Please try again.'
+      );
+      return;
+    }
+
+    const previews = await Promise.all(
+      preparedFiles.map(
+        (file) =>
+          new Promise<string>((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () =>
+              typeof reader.result === 'string'
+                ? resolve(reader.result)
+                : reject(new Error('Could not read the selected image.'));
+            reader.onerror = () =>
+              reject(new Error('Could not read the selected image.'));
+            reader.readAsDataURL(file);
+          })
+      )
+    ).catch(() => null);
+
+    if (!previews) {
+      setErrorMsg('Could not read one of the selected images. Please try again.');
+      return;
+    }
+    setImages((prev) => [...prev, ...previews].slice(0, 10));
+    setImageFiles((prev) => [...prev, ...preparedFiles].slice(0, 10));
+    setErrorMsg(null);
   };
 
   const removeImageAt = (index: number) => {
     setImages((prev) => prev.filter((_, i) => i !== index));
+    setImageFiles((prev) => prev.filter((_, i) => i !== index));
   };
 
   const handleSaveDraftClick = () => {
@@ -125,53 +196,62 @@ export function CreateListingPage({
     setTimeout(() => setDraftSavedNotice(false), 3000);
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!title.trim()) {
       setErrorMsg('Please enter a listing title.');
       return;
     }
-    const numericPrice = parseFloat(price.replace(/[^0-9.]/g, '')) || 0;
-    if (numericPrice <= 0) {
-      setErrorMsg('Please enter a valid price greater than 0.');
+    const numericPrice = Number(price);
+    if (!price.trim() || !Number.isFinite(numericPrice) || numericPrice < 0) {
+      setErrorMsg('Please enter a valid price greater than or equal to 0.');
+      return;
+    }
+    if (!description.trim()) {
+      setErrorMsg('Please enter a listing description.');
+      return;
+    }
+    if (!isValidEmail(email)) {
+      setErrorMsg('Please enter a valid seller email address.');
+      return;
+    }
+    if (!CATEGORIES.includes(category as (typeof CATEGORIES)[number])) {
+      setErrorMsg('Please choose a valid category.');
+      return;
+    }
+    const selectedImageFiles = imageFiles.filter(
+      (file): file is File => file instanceof File
+    );
+    if (selectedImageFiles.length === 0) {
+      setErrorMsg(
+        images.length > 0
+          ? 'Please reselect at least one image from this device before publishing.'
+          : 'Please upload at least one listing image.'
+      );
       return;
     }
     setErrorMsg(null);
-
-    const newListing: Listing = {
-      id: `lst-${Math.random().toString(36).slice(2, 10)}`,
-      title: title.trim(),
-      price: numericPrice,
-      currency: '$',
-      negotiable: true,
-      category:
-        category === 'Electronics & Computers' ? 'Electronics' : category,
-      filterChipCategory: mapCategoryToChip(category),
-      condition,
-      badge: condition,
-      location: location.trim() || 'Palo Alto, CA',
-      distanceMiles: 1,
-      listedLabel: 'Listed just now',
-      listedHoursAgo: 0.05,
-      description: description.trim() || 'No description provided.',
-      images: images.length > 0 ? images : [BIKE_IMAGES.previewCover],
-      seller: {
-        name: 'Gerrit W.',
-        initials: 'G',
-        email: email.trim() || 'gwientjes@gmail.com',
-        verified: true,
-        rating: 5.0,
-        reviewCount: 24,
-        joinedYear: 2021,
-        location: location.trim() || 'Palo Alto, CA',
-        replyTime: 'Typically replies in 1 hr',
-      },
-      freeDelivery: false,
-      offersShipping: false,
-      isUserOwned: true,
-    };
-
-    onPublish(newListing);
+    setIsPublishing(true);
+    try {
+      await onPublish({
+        title: title.trim(),
+        description: description.trim(),
+        price: numericPrice,
+        category,
+        sellerEmail: email.trim(),
+        location: location.trim(),
+        condition,
+        images: selectedImageFiles,
+      });
+    } catch (error) {
+      setErrorMsg(
+        error instanceof Error
+          ? error.message
+          : 'The listing could not be published. Please try again.'
+      );
+    } finally {
+      setIsPublishing(false);
+    }
   };
 
   const numericDisplayPrice = price.replace(/[^0-9.]/g, '') || '0';
@@ -231,7 +311,7 @@ export function CreateListingPage({
           </div>
 
           {errorMsg && (
-            <div className="mb-4 p-3 rounded-lg bg-[#ffdad6] text-[#93000a] text-[13px] font-semibold">
+            <div role="alert" className="mb-4 p-3 rounded-lg bg-[#ffdad6] text-[#93000a] text-[13px] font-semibold">
               {errorMsg}
             </div>
           )}
@@ -478,10 +558,11 @@ export function CreateListingPage({
             <div className="pt-2 flex flex-col gap-2.5">
               <button
                 type="submit"
-                className="w-full h-12 bg-[#0866ff] hover:bg-[#0050cd] text-white font-semibold text-[15px] rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                disabled={isPublishing}
+                className="w-full h-12 bg-[#0866ff] hover:bg-[#0050cd] disabled:opacity-70 text-white font-semibold text-[15px] rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
               >
                 <PlusCircle className="w-5 h-5" />
-                <span>Create Listing</span>
+                <span>{isPublishing ? 'Publishing...' : 'Create Listing'}</span>
               </button>
               <button
                 type="button"

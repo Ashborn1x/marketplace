@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import { Menu, Plus, X } from 'lucide-react';
+import { Menu, Plus, Store, UserRound, X } from 'lucide-react';
 import type { RouteView } from '../types/marketplace';
-import { MARKETPLACE_LOGO_URL, USER_AVATAR_URL } from '../data/mockListings';
-import { SafeImage } from './SafeImage';
 
 interface HeaderProps {
   activeRoute: RouteView;
@@ -40,11 +38,9 @@ export function Header({
           onClick={() => onNavigate('home')}
           className="flex items-center gap-2.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0866ff] rounded-lg shrink-0"
         >
-          <SafeImage
-            src={MARKETPLACE_LOGO_URL}
-            alt="Marketplace Logo"
-            className="h-8 w-8 object-contain rounded-lg"
-          />
+          <span className="h-8 w-8 rounded-lg bg-[#0866ff] text-white flex items-center justify-center">
+            <Store className="w-5 h-5" aria-hidden="true" />
+          </span>
           <span className="text-[20px] leading-[26px] text-[#191c1e] font-bold tracking-tight whitespace-nowrap">
             Marketplace
           </span>
@@ -102,11 +98,9 @@ export function Header({
                 : 'hover:opacity-90'
             }`}
           >
-            <SafeImage
-              src={USER_AVATAR_URL}
-              alt="Your Profile"
-              className="w-8 h-8 rounded-full object-cover"
-            />
+            <span className="w-8 h-8 rounded-full bg-[#eceef1] text-[#424656] flex items-center justify-center">
+              <UserRound className="w-5 h-5" aria-hidden="true" />
+            </span>
           </button>
 
           <button

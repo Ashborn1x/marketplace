@@ -23,7 +23,11 @@ interface ListingDetailPageProps {
   isSaved: boolean;
   onToggleSave: (id: string) => void;
   onBack: () => void;
-  onSendMessage: (listing: Listing, buyerEmail: string, text: string) => void;
+  onSendMessage: (
+    listing: Listing,
+    buyerEmail: string,
+    text: string
+  ) => Promise<void>;
   onOpenInbox: () => void;
   onZoomImage: (src: string, alt: string) => void;
 }
@@ -55,25 +59,34 @@ export function ListingDetailPage({
         ];
 
   const [activeThumbIdx, setActiveThumbIdx] = useState(0);
-  const [buyerEmail, setBuyerEmail] = useState('buyer@example.com');
+  const [buyerEmail, setBuyerEmail] = useState('');
   const [messageText, setMessageText] = useState(
     'Hi! Is this item still available? Can pick up on campus this afternoon.'
   );
   const [sending, setSending] = useState(false);
   const [sentSuccess, setSentSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [copiedShare, setCopiedShare] = useState(false);
 
   const activeImage = gallery[activeThumbIdx] || listing.images[0];
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!buyerEmail.trim() || !messageText.trim()) return;
     setSending(true);
-    setTimeout(() => {
-      onSendMessage(listing, buyerEmail.trim(), messageText.trim());
-      setSending(false);
+    setSubmitError(null);
+    try {
+      await onSendMessage(listing, buyerEmail.trim(), messageText.trim());
       setSentSuccess(true);
-    }, 450);
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : 'Your message could not be sent. Please try again.'
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
   const handleShare = () => {
@@ -118,12 +131,14 @@ export function ListingDetailPage({
               alt={listing.title}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
             />
-            <div className="absolute top-3 left-3 flex gap-1.5">
-              <span className="inline-flex items-center gap-1 bg-white/90 backdrop-blur px-2.5 py-1 rounded-full text-[#191c1e] text-[11px] font-bold shadow-sm">
-                <BadgeCheck className="w-3.5 h-3.5 text-[#0050cd]" />
-                <span>Verified Item</span>
-              </span>
-            </div>
+            {listing.seller.verified && (
+              <div className="absolute top-3 left-3 flex gap-1.5">
+                <span className="inline-flex items-center gap-1 bg-white/90 backdrop-blur px-2.5 py-1 rounded-full text-[#191c1e] text-[11px] font-bold shadow-sm">
+                  <BadgeCheck className="w-3.5 h-3.5 text-[#0050cd]" />
+                  <span>Verified Item</span>
+                </span>
+              </div>
+            )}
             <button
               type="button"
               onClick={() => onZoomImage(activeImage, listing.title)}
@@ -253,7 +268,7 @@ export function ListingDetailPage({
                 Seller Information
               </h2>
               <span className="text-[11px] font-bold text-[#0058bc] bg-[#eceef1] px-2.5 py-0.5 rounded-full">
-                Highly Rated
+                {listing.seller.rating > 0 ? 'Highly Rated' : 'Community Seller'}
               </span>
             </div>
 
@@ -274,12 +289,15 @@ export function ListingDetailPage({
                   {listing.seller.email}
                 </span>
                 <div className="flex items-center gap-1 text-[13px] text-[#191c1e] mt-0.5 tabular-nums">
-                  <span className="text-amber-500 font-bold">
-                    ★ {listing.seller.rating.toFixed(1)}
-                  </span>
+                  {listing.seller.rating > 0 && (
+                    <span className="text-amber-500 font-bold">
+                      ★ {listing.seller.rating.toFixed(1)}
+                    </span>
+                  )}
                   <span className="text-[#727687]">
-                    • Joined in {listing.seller.joinedYear} •{' '}
-                    {listing.seller.location}
+                    {listing.seller.joinedYear > 0
+                      ? `• Joined in ${listing.seller.joinedYear} • ${listing.seller.location}`
+                      : listing.seller.location}
                   </span>
                 </div>
               </div>
@@ -305,7 +323,7 @@ export function ListingDetailPage({
                 <CheckCircle2 className="w-5 h-5 text-[#1b7f43] shrink-0 mt-0.5" />
                 <div className="flex flex-col flex-1">
                   <p className="text-[13px] font-semibold text-[#1b7f43]">
-                    Message sent successfully! The seller will receive an email notification.
+                    Your message was sent to the seller.
                   </p>
                   <button
                     type="button"
@@ -316,6 +334,12 @@ export function ListingDetailPage({
                   </button>
                 </div>
               </div>
+            )}
+
+            {submitError && (
+              <p role="alert" className="text-[13px] font-semibold text-[#ba1a1a]">
+                {submitError}
+              </p>
             )}
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-3.5">
