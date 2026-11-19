@@ -1,0 +1,1400 @@
+<!-- Marketplace Homepage -->
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"error-container":"#ffdad6","secondary":"#0058bc","inverse-primary":"#b3c5ff","surface-tint":"#0054d7","on-tertiary-fixed-variant":"#00458e","on-tertiary-fixed":"#001b3e","surface-variant":"#e0e3e6","on-surface":"#191c1e","on-background":"#191c1e","surface":"#f7f9fc","surface-container-highest":"#e0e3e6","on-surface-variant":"#424656","primary-fixed":"#dbe1ff","on-secondary-container":"#fefcff","surface-bright":"#f7f9fc","on-tertiary-container":"#f8f8ff","on-secondary-fixed":"#001a41","surface-container-lowest":"#ffffff","primary":"#0050cd","inverse-on-surface":"#eff1f4","on-primary":"#ffffff","surface-container-low":"#f2f4f7","primary-container":"#0866ff","on-primary-fixed-variant":"#003fa5","tertiary":"#0058b1","surface-container-high":"#e6e8eb","on-error-container":"#93000a","background":"#f7f9fc","on-primary-fixed":"#00184a","surface-container":"#eceef1","inverse-surface":"#2d3133","tertiary-container":"#0070de","on-primary-container":"#f9f7ff","primary-fixed-dim":"#b3c5ff","outline-variant":"#c2c6d8","surface-dim":"#d8dadd","on-secondary-fixed-variant":"#004493","on-error":"#ffffff","error":"#ba1a1a","outline":"#727687","secondary-container":"#0070eb","tertiary-fixed":"#d7e3ff","on-tertiary":"#ffffff","secondary-fixed":"#d8e2ff","on-secondary":"#ffffff","secondary-fixed-dim":"#adc6ff","tertiary-fixed-dim":"#aac7ff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-sm":"0.5rem","space-xs":"0.25rem","margin":"1rem","space-lg":"1rem","gutter":"1rem","space-md":"0.75rem","space-xl":"1.5rem","gutter-desktop":"1.25rem","margin-desktop":"2rem"},"fontFamily":{"headline-xl":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"]},"fontSize":{"headline-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["13px",{"lineHeight":"16px","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg":["24px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"700"}],"headline-sm":["17px",{"lineHeight":"22px","fontWeight":"600"}],"label-lg":["15px",{"lineHeight":"20px","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"headline-xl-mobile":["28px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-md":["20px",{"lineHeight":"26px","fontWeight":"600"}]}}}};</script></head><body class="bg-surface-container-low font-body-md text-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest shadow-[0_1px_4px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-margin-desktop flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md shrink-0"><img alt="Marketplace Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBycXvUAJisF56jWwaUwvkWig-Mo-VSROCAWYD2UE9wNJ8i8K6Y8FlOXSLtY3C2n5eZDA7Sn0NGRSgdw3rZqcU0Ie8d0_6Oo14peEkrsUBI4dURvib_FuCTHY4WvI5fWIjESr_vShAEM-6fBwMFEgjV68qLKH4g1RbwYvVhZLoLFVa2gUutz4sPaXmGEa9cNbtTjNtfXqfUe2zuMjQoL2p3-8En3gtI7vA040shF2ws"/><span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight hidden sm:inline-block">Marketplace</span><div class="relative ml-space-xs hidden md:flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline pointer-events-none text-[20px]">search</span><input class="w-64 lg:w-80 h-10 pl-10 pr-4 bg-surface-container rounded-full font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" placeholder="Search Marketplace" type="text"/></div></div><nav class="hidden xl:flex items-center h-full gap-space-xl" data-active-classes="text-primary border-b-2 border-primary font-bold"><a aria-current="page" class="h-full flex items-center px-space-sm transition-colors text-primary border-b-2 border-primary font-bold" data-path="home" href="#">Home</a><a class="h-full flex items-center px-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="browse" href="#">Browse</a><a class="h-full flex items-center px-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="notifications" href="#">Notifications</a><a class="h-full flex items-center px-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="inbox" href="#">Inbox</a></nav><div class="flex items-center gap-space-sm shrink-0"><a class="hidden sm:inline-flex items-center justify-center gap-space-xs h-10 px-space-lg bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg rounded-full transition-colors shadow-sm" data-path="create-listing" href="#"><span class="material-symbols-outlined text-[18px]">add</span><span>Create New Listing</span></a><div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer text-on-surface"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2.5 h-2.5 bg-error rounded-full ring-2 ring-surface-container-lowest"></span></div><div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer text-on-surface"><span class="material-symbols-outlined text-[20px]">chat</span><span class="absolute top-1 right-1 w-2.5 h-2.5 bg-error rounded-full ring-2 ring-surface-container-lowest"></span></div><div class="ml-space-xs cursor-pointer"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3HUOma_gFVDzjLfSSBPqWdK_IkuDtXtFCeiSQnZoMQqoutjbK8zEnsrk9ZZxtVs2NA8eDxhYsK8iaO_oS7tkX5SOcbpkLYgqqT8BNFT6d7tNEn6D-_DtbHoW7ksSJQ6Xa0W7dgSA7xUkkdbGDUzoOahBvyBhp_hE2yrDhem3ZBHgjChLgx7QIvaThhzDG3Y8uWImHzvewttOT2UjWFhCsw0kACxkiV2oy3bipy6Y"/></div></div></div></header><main class="w-full pt-16 bg-surface-container-low min-h-screen"><div class="flex flex-col w-full">
+<div class="w-full max-w-[1680px] mx-auto flex flex-col lg:flex-row items-start px-margin sm:px-margin-desktop py-space-md gap-gutter-desktop">
+<!-- Left Navigation Rail (Desktop) -->
+<aside class="hidden lg:flex flex-col w-80 shrink-0 bg-surface-container-lowest rounded-xl shadow-sm p-space-md">
+<!-- Create listing section -->
+<div class="flex flex-col space-y-space-xs pb-space-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface px-space-sm pt-space-xs mb-space-xs">Create new listing</h2>
+<a class="flex items-center gap-space-md px-space-sm py-space-sm rounded-lg hover:bg-surface-container transition-colors text-on-surface group" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-primary transition-colors">sell</span>
+<span class="font-body-md text-body-md font-medium">Choose listing type</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-space-sm rounded-lg hover:bg-surface-container transition-colors text-on-surface group" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-primary transition-colors">label</span>
+<span class="font-body-md text-body-md font-medium">Your listings</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-space-sm rounded-lg hover:bg-surface-container transition-colors text-on-surface group" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-primary transition-colors">person</span>
+<span class="font-body-md text-body-md font-medium">Seller help</span>
+</a>
+</div>
+<!-- Categories Divider / Spacing via container background shift -->
+<div class="h-px bg-surface-container-high my-space-xs"></div>
+<!-- Categories section -->
+<div class="flex flex-col space-y-0.5 pt-space-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface px-space-sm pb-space-xs">Categories</h2>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">directions_car</span>
+<span class="font-body-md text-body-md">Vehicles</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">real_estate_agent</span>
+<span class="font-body-md text-body-md">Property Rentals</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">apparel</span>
+<span class="font-body-md text-body-md">Apparel</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">feed</span>
+<span class="font-body-md text-body-md">Classifieds</span>
+</a>
+<!-- Highlighted Active Category -->
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg bg-primary-fixed text-primary font-semibold transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] text-primary" style="font-variation-settings: 'FILL' 1;">devices</span>
+<span class="font-body-md text-body-md">Electronics</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">sports_esports</span>
+<span class="font-body-md text-body-md">Entertainment</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">family_restroom</span>
+<span class="font-body-md text-body-md">Family</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">card_giftcard</span>
+<span class="font-body-md text-body-md">Free Stuff</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">yard</span>
+<span class="font-body-md text-body-md">Garden & Outdoor</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">palette</span>
+<span class="font-body-md text-body-md">Hobbies</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">chair</span>
+<span class="font-body-md text-body-md">Home Goods</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">home_repair_service</span>
+<span class="font-body-md text-body-md">Home Improvement</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">holiday_village</span>
+<span class="font-body-md text-body-md">Home Sales</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">piano</span>
+<span class="font-body-md text-body-md">Musical Instruments</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">print</span>
+<span class="font-body-md text-body-md">Office Supplies</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">pets</span>
+<span class="font-body-md text-body-md">Pet Supplies</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">sports_basketball</span>
+<span class="font-body-md text-body-md">Sporting Goods</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">smart_toy</span>
+<span class="font-body-md text-body-md">Toys & Games</span>
+</a>
+<a class="flex items-center gap-space-md px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">groups</span>
+<span class="font-body-md text-body-md">Buy and sell groups</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Stream -->
+<section class="flex-1 w-full min-w-0">
+<!-- Top Action Bar / Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md mb-space-lg">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Today's picks</h1>
+<button class="inline-flex items-center gap-space-xs mt-1 text-primary hover:text-primary-container font-label-md text-label-md transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>Palo Alto, CA • Within 20 mi</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+<!-- Search Bar Row (as shown in reference screenshot) -->
+<div class="flex items-center gap-space-xs w-full sm:w-auto">
+<div class="relative flex-1 sm:w-72">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">search</span>
+<input class="w-full h-10 pl-9 pr-4 bg-surface-container-lowest rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none shadow-sm" placeholder="Search listings..." type="text"/>
+</div>
+<button class="h-10 px-5 bg-on-surface hover:bg-on-surface-variant text-on-primary font-label-md text-label-md rounded-lg shadow-sm transition-colors cursor-pointer">
+            Search
+          </button>
+</div>
+</div>
+<!-- Horizontal Category Filter Chips -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-space-sm mb-space-lg no-scrollbar">
+<button class="shrink-0 px-4 py-1.5 rounded-full bg-primary-fixed text-primary font-label-md text-label-md transition-colors shadow-sm">
+          All Items
+        </button>
+<button class="shrink-0 px-4 py-1.5 rounded-full bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors shadow-sm">
+          Electronics
+        </button>
+<button class="shrink-0 px-4 py-1.5 rounded-full bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors shadow-sm">
+          Vehicles
+        </button>
+<button class="shrink-0 px-4 py-1.5 rounded-full bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors shadow-sm">
+          Property
+        </button>
+<button class="shrink-0 px-4 py-1.5 rounded-full bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors shadow-sm">
+          Clothing
+        </button>
+<button class="shrink-0 px-4 py-1.5 rounded-full bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors shadow-sm">
+          Home & Garden
+        </button>
+<button class="shrink-0 px-4 py-1.5 rounded-full bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors shadow-sm">
+          Sports & Outdoors
+        </button>
+<button class="shrink-0 px-4 py-1.5 rounded-full bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors shadow-sm">
+          Books
+        </button>
+<button class="shrink-0 px-4 py-1.5 rounded-full bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors shadow-sm">
+          Other
+        </button>
+</div>
+<!-- High Density Product Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-gutter-desktop">
+<!-- Card 1: Electric Hybrid Mountain Bike (Using provided IMAGE_1) -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer flex flex-col">
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img alt="Samebike Electric Hybrid Mountain Bike" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzpFNf1MUbsZ0b5pfercbG6d5q7QjuS5mQbCpUnLG4OjUV6EF3H5MZatpizb2QKFFJoqXkJJxCEscWVzx-hbX2WkHM6mg9eEa6FSg0hMIlnk0QrSKsJL4kfNRDbGfli2ll66mCKUC8U3R5eK43BiXuNlkGotfKerN9Wr3N4dpr8xSyrXbQap1yqfSISFRUQ0eQzsMuQZLVarVf7JRBj2Z2hgfAGUZtFeIN9D4RSmVi82H9ddnkCetu"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between">
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">₱7,500</div>
+<h3 class="font-body-md text-body-md text-on-surface font-normal line-clamp-1 mt-0.5">Samebike Electric Hybrid Mountain Bike</h3>
+</div>
+<div class="mt-space-xs">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Listed just now</p>
+<p class="font-body-sm text-body-sm text-outline">Palo Alto, CA</p>
+</div>
+</div>
+</article>
+<!-- Card 2: iPhone 13 128GB Midnight -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer flex flex-col">
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Close up product shot of a sleek midnight black smartphone resting gently on a soft grey surface, pristine condition display reflecting ambient studio lighting, clean tech product photography in modern blue and neutral tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVhy40XuX368BKIx3mzRQ5z9K5e5lzhHENmed00c496K0pC7AMErYfUOrtSUfL0nw8X_td_IazOrIenst_TvmUpoEfTfGHeR5L627VeFupAZSsfhrTFeShfmPAe9N03PxmkkW_XXkp7Tlv8FqxT9GVeo-efrhovCZl4ott89AmUMxvT11-gLmy6ZobsvNkQjNVTg7viU4uke8n8KJq4MUGKjf4-1TD90iPoK1trE8"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between">
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">₱18,500</div>
+<h3 class="font-body-md text-body-md text-on-surface font-normal line-clamp-1 mt-0.5">iPhone 13 128GB Midnight - Pristine 92%</h3>
+</div>
+<div class="mt-space-xs">
+<p class="font-body-sm text-body-sm text-on-surface-variant">2 hours ago</p>
+<p class="font-body-sm text-body-sm text-outline">Palo Alto, CA</p>
+</div>
+</div>
+</article>
+<!-- Card 3: Gaming Laptop RTX 4060 -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer flex flex-col">
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Modern high performance gaming laptop opened on a clean wooden desk with subtle blue keyboard backlight glowing, crisp screen display, professional hardware photography in balanced studio environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQjvfvS9KCsXY3PkZvFPk-VSzmhRfnXgYFM_R-2lv0SpYumz1dW7QJOaqeN51zYU_FhxzwmnHtM9_eHj7pPxMKP7HfUtFZ_QUaBo7oICU7D_dFECrlexLPit_Rgvd5T3jB9IRUU0aqNss09OgVQkNICuL3rGsQuqStGrdQYKf_GBrJvB4Nz45y1W8nqhElIX4NVvz2_9NdtFvJGvEz0apqf_mNM0_R8ujP_l4xO1g"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between">
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">₱32,000</div>
+<h3 class="font-body-md text-body-md text-on-surface font-normal line-clamp-1 mt-0.5">Gaming Laptop RTX 4060 - AMD Ryzen 7</h3>
+</div>
+<div class="mt-space-xs">
+<p class="font-body-sm text-body-sm text-on-surface-variant">1 day ago</p>
+<p class="font-body-sm text-body-sm text-outline">San Jose, CA</p>
+</div>
+</div>
+</article>
+<!-- Card 4: Wooden Study Desk -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer flex flex-col">
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Solid natural pine wood Scandinavian study desk with drawers, situated in a brightly lit minimalist home office with soft daylight and plant in background, realistic interior furniture photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_djwUxifn32eWto9fm6qIrxVvGc_4K62rTZrVCeEKsqsh6mJytOja0m0pjOOy-hFev5_ZiBZAUFfr4PLDKQSE_oLxgVKkcP1jDr0BVrer_PZMKFyZJeZvrg2RaEI59MC5wp5NgYNt60B9w6qhlt4BBo4QoeAP5dxQfIGJKjO_tUmwwke5VnJoKvWkQaxyz5bmcGwcwmyu-dTje6s8Jo5QBNuoLQ5Uu1va0VZXfAs"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between">
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">₱3,200</div>
+<h3 class="font-body-md text-body-md text-on-surface font-normal line-clamp-1 mt-0.5">Solid pine wood study desk with drawers</h3>
+</div>
+<div class="mt-space-xs">
+<p class="font-body-sm text-body-sm text-on-surface-variant">3 hours ago</p>
+<p class="font-body-sm text-body-sm text-outline">Mountain View, CA</p>
+</div>
+</div>
+</article>
+<!-- Card 5: Wireless Noise-Cancelling Headphones -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer flex flex-col">
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Sleek premium over-ear wireless headphones in matte charcoal black displayed on a minimal stand, soft dramatic rim lighting highlighting smooth contours, audio gear product shot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyFzDebmWdNsG2iMEfiQe1v-DdbxVZAJnUMAMvBT_2J0bEaPYKlr708n7PV8udfz-z8tf-d3tzhs_VyFBMfTbm6E5ns0tyjc7oIMdoErpEM6hWj_xXMuk5iiWDZbag5RSaJrBcFAW4sHC9CjJLVfiHBneX8uCN49oD8rRpZR7y9LkHafoV-SCWivQtZQaPHJ6mFO4yMSvdiVIDIUzwnQh9TcKgBAau53_19NYOaOw"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between">
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">₱1,500</div>
+<h3 class="font-body-md text-body-md text-on-surface font-normal line-clamp-1 mt-0.5">Wireless Noise-Cancelling Headphones</h3>
+</div>
+<div class="mt-space-xs">
+<p class="font-body-sm text-body-sm text-on-surface-variant">5 hours ago</p>
+<p class="font-body-sm text-body-sm text-outline">Sunnyvale, CA</p>
+</div>
+</div>
+</article>
+<!-- Card 6: Ergonomic Mesh Office Chair -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer flex flex-col">
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="High end ergonomic mesh desk chair with adjustable lumbar support and armrests, clean contemporary white room background, natural soft lighting highlighting mesh texture and build quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvqzf2lPjj-m-JuQvvYFTGZT65jSDbH1uv0dJA0kd2aNaKanDX2rcjz-Zl6QFV_M9sGyj5eT9hBSGzj1XfxWqoUqULItcIIfCCFGwb4oUjOzy3VAZJRHSdIpZL_3kgWZWWNlsxZMDL0T2m6mr5BA8-hEl6s1H_CnVqKZL_MlZM39z9Em53bHutVOpigiFKgB-1gdMr0PYD-C5bkQYJGxPJXNtSWE7I0H9x78dnqyU"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between">
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">₱2,800</div>
+<h3 class="font-body-md text-body-md text-on-surface font-normal line-clamp-1 mt-0.5">Ergonomic Mesh Office Chair with Lumbar</h3>
+</div>
+<div class="mt-space-xs">
+<p class="font-body-sm text-body-sm text-on-surface-variant">4 hours ago</p>
+<p class="font-body-sm text-body-sm text-outline">Palo Alto, CA</p>
+</div>
+</div>
+</article>
+<!-- Card 7: Custom Mechanical Keyboard -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer flex flex-col">
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Custom mechanical keyboard with dual-tone keycaps and coiled aviator cable on a wool desk pad, soft top-down desk aesthetic lighting with subtle warm and cool blue contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrYIQfFWXab8-Z0DKRY6cixcovjXWx0KvMD4JZKDN6LvxOCFt7d4fQnQlg9nNTTCLAy9trXaM6zHpuT9k8tF9TZw2u_A2AAs_HrRlIW0Aminn0sG5fhATNidCZr6cwcmvw0IicTPEjgXjqN6po057uL14Oe8NMmEoEAk-qSqK-nea4a0kb7EoF02ZAnhKOPSdPDig5m2qF7NYbTOo5JRnmUd1rXDgqsGAV0FQgNUc"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between">
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">₱2,000</div>
+<h3 class="font-body-md text-body-md text-on-surface font-normal line-clamp-1 mt-0.5">Custom Mechanical Keyboard (Linear)</h3>
+</div>
+<div class="mt-space-xs">
+<p class="font-body-sm text-body-sm text-on-surface-variant">1 day ago</p>
+<p class="font-body-sm text-body-sm text-outline">Redwood City, CA</p>
+</div>
+</div>
+</article>
+<!-- Card 8: Mirrorless Digital Camera 4K -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer flex flex-col">
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Compact mirrorless digital camera with attached zoom lens placed beside a lens cap and strap on a neutral surface, sharp focus on lens glass and metal textured dials, crisp product photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4LfBtNr929gX-4CX4a7b-c2X1sYU82IJTesiSsnBWOC5URx7XohV4D5Had9tJPNyxvBn4OBeGj1qBdkHC9TcDw20XXmJgvbsfNDqiNJAvWbiXhkEcGGR3HrdbHL3kuTULqlNgrwyk5_UBW5YWcRndsXpMtRVHjOkJwYkJaylUKVA1PJc3zg8v9Hk7NHwTFdTcymAVHmecYH1VPia_MyqGQ3SVTzqwRI-RpBLtmWc"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between">
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">₱12,000</div>
+<h3 class="font-body-md text-body-md text-on-surface font-normal line-clamp-1 mt-0.5">Mirrorless Digital Camera 4K w/ 16-50mm</h3>
+</div>
+<div class="mt-space-xs">
+<p class="font-body-sm text-body-sm text-on-surface-variant">6 hours ago</p>
+<p class="font-body-sm text-body-sm text-outline">Menlo Park, CA</p>
+</div>
+</div>
+</article>
+</div>
+<!-- Community Trust Banner -->
+<div class="mt-space-xl bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[28px]">verified_user</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Buying and Selling on Marketplace</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Inspect items in person, chat directly with sellers, and use secure payment methods.</p>
+</div>
+</div>
+<button class="h-10 px-5 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded-lg shrink-0 transition-colors">
+          Learn More About Safety
+        </button>
+</div>
+</section>
+</div>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-xl mt-space-xl"><div class="w-full px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm"><div class="flex items-center gap-space-lg"><span class="font-label-md text-label-md text-on-surface">Marketplace © 2025</span><a class="hover:text-on-surface transition-colors" href="#">Privacy</a><a class="hover:text-on-surface transition-colors" href="#">Terms</a><a class="hover:text-on-surface transition-colors" href="#">Advertising</a><a class="hover:text-on-surface transition-colors" href="#">Help Center</a></div><div class="text-outline font-label-sm text-label-sm">Meta Platforms • Community Commerce</div></div></footer></body></html>
+
+<!-- Create Listing Page -->
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"error-container":"#ffdad6","secondary":"#0058bc","inverse-primary":"#b3c5ff","surface-tint":"#0054d7","on-tertiary-fixed-variant":"#00458e","on-tertiary-fixed":"#001b3e","surface-variant":"#e0e3e6","on-surface":"#191c1e","on-background":"#191c1e","surface":"#f7f9fc","surface-container-highest":"#e0e3e6","on-surface-variant":"#424656","primary-fixed":"#dbe1ff","on-secondary-container":"#fefcff","surface-bright":"#f7f9fc","on-tertiary-container":"#f8f8ff","on-secondary-fixed":"#001a41","surface-container-lowest":"#ffffff","primary":"#0050cd","inverse-on-surface":"#eff1f4","on-primary":"#ffffff","surface-container-low":"#f2f4f7","primary-container":"#0866ff","on-primary-fixed-variant":"#003fa5","tertiary":"#0058b1","surface-container-high":"#e6e8eb","on-error-container":"#93000a","background":"#f7f9fc","on-primary-fixed":"#00184a","surface-container":"#eceef1","inverse-surface":"#2d3133","tertiary-container":"#0070de","on-primary-container":"#f9f7ff","primary-fixed-dim":"#b3c5ff","outline-variant":"#c2c6d8","surface-dim":"#d8dadd","on-secondary-fixed-variant":"#004493","on-error":"#ffffff","error":"#ba1a1a","outline":"#727687","secondary-container":"#0070eb","tertiary-fixed":"#d7e3ff","on-tertiary":"#ffffff","secondary-fixed":"#d8e2ff","on-secondary":"#ffffff","secondary-fixed-dim":"#adc6ff","tertiary-fixed-dim":"#aac7ff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-sm":"0.5rem","space-xs":"0.25rem","margin":"1rem","space-lg":"1rem","gutter":"1rem","space-md":"0.75rem","space-xl":"1.5rem","gutter-desktop":"1.25rem","margin-desktop":"2rem"},"fontFamily":{"headline-xl":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"]},"fontSize":{"headline-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["13px",{"lineHeight":"16px","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg":["24px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"700"}],"headline-sm":["17px",{"lineHeight":"22px","fontWeight":"600"}],"label-lg":["15px",{"lineHeight":"20px","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"headline-xl-mobile":["28px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-md":["20px",{"lineHeight":"26px","fontWeight":"600"}]}}}};</script></head><body class="bg-surface-container-low font-body-md text-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest shadow-[0_1px_4px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-margin-desktop flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md shrink-0"><img alt="Marketplace Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBycXvUAJisF56jWwaUwvkWig-Mo-VSROCAWYD2UE9wNJ8i8K6Y8FlOXSLtY3C2n5eZDA7Sn0NGRSgdw3rZqcU0Ie8d0_6Oo14peEkrsUBI4dURvib_FuCTHY4WvI5fWIjESr_vShAEM-6fBwMFEgjV68qLKH4g1RbwYvVhZLoLFVa2gUutz4sPaXmGEa9cNbtTjNtfXqfUe2zuMjQoL2p3-8En3gtI7vA040shF2ws"/><span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight hidden sm:inline-block">Marketplace</span><div class="relative ml-space-xs hidden md:flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline pointer-events-none text-[20px]">search</span><input class="w-64 lg:w-80 h-10 pl-10 pr-4 bg-surface-container rounded-full font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" placeholder="Search Marketplace" type="text"/></div></div><nav class="hidden xl:flex items-center h-full gap-space-xl" data-active-classes="text-primary border-b-2 border-primary font-bold"><a class="h-full flex items-center px-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#">Home</a><a class="h-full flex items-center px-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="browse" href="#">Browse</a><a class="h-full flex items-center px-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="notifications" href="#">Notifications</a><a class="h-full flex items-center px-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="inbox" href="#">Inbox</a></nav><div class="flex items-center gap-space-sm shrink-0"><a class="hidden sm:inline-flex items-center justify-center gap-space-xs h-10 px-space-lg bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg rounded-full transition-colors shadow-sm" data-path="create-listing" href="#"><span class="material-symbols-outlined text-[18px]">add</span><span>Create New Listing</span></a><div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer text-on-surface"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2.5 h-2.5 bg-error rounded-full ring-2 ring-surface-container-lowest"></span></div><div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer text-on-surface"><span class="material-symbols-outlined text-[20px]">chat</span><span class="absolute top-1 right-1 w-2.5 h-2.5 bg-error rounded-full ring-2 ring-surface-container-lowest"></span></div><div class="ml-space-xs cursor-pointer"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3HUOma_gFVDzjLfSSBPqWdK_IkuDtXtFCeiSQnZoMQqoutjbK8zEnsrk9ZZxtVs2NA8eDxhYsK8iaO_oS7tkX5SOcbpkLYgqqT8BNFT6d7tNEn6D-_DtbHoW7ksSJQ6Xa0W7dgSA7xUkkdbGDUzoOahBvyBhp_hE2yrDhem3ZBHgjChLgx7QIvaThhzDG3Y8uWImHzvewttOT2UjWFhCsw0kACxkiV2oy3bipy6Y"/></div></div></div></header><main class="w-full pt-16 bg-surface-container-low min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive Form & Dual Column Live Preview Workstation -->
+<div class="w-full max-w-[1600px] mx-auto px-margin sm:px-margin-desktop py-space-lg lg:py-space-xl">
+<!-- Top Action Breadcrumb & Mode Meta -->
+<div class="flex items-center justify-between pb-space-lg mb-space-md">
+<div class="flex items-center gap-space-sm">
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors shadow-sm" href="#" title="Back to Marketplace">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</a>
+<div>
+<div class="flex items-center gap-space-xs text-outline font-label-sm text-label-sm uppercase tracking-wider">
+<span>Marketplace</span>
+<span>/</span>
+<span class="text-primary font-semibold">Sell Item</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Create Listing</h1>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="hidden sm:inline-flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container text-on-surface hover:bg-surface-container-high rounded-full font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">draft</span>
+<span>Save as Draft</span>
+</button>
+<span class="inline-flex items-center px-space-sm py-1 bg-surface-container-highest text-on-surface-variant rounded-full font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container mr-1.5 animate-pulse"></span>
+          Auto-syncing preview
+        </span>
+</div>
+</div>
+<!-- Main Dual Panel Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- LEFT COLUMN: Listing Form Controls (5 cols on lg, ~40%) -->
+<section class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-lg sm:p-space-xl shadow-sm">
+<div class="pb-space-md mb-space-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Item Details</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Share what you're selling with buyers in your local community.</p>
+</div>
+<form class="flex flex-col gap-space-lg" id="createListingForm" onsubmit="event.preventDefault();">
+<!-- Photos Section -->
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface">Photos <span class="text-error">*</span></label>
+<span class="font-label-sm text-label-sm text-outline" id="photoCountLabel">1 / 10 photos</span>
+</div>
+<!-- Uploaded Thumbnails Container -->
+<div class="relative group rounded-xl overflow-hidden bg-surface-container mb-space-sm transition-all shadow-sm" id="photoPreviewContainer">
+<img alt="Uploaded Bike Preview" class="w-full h-52 sm:h-64 object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]" data-alt="A rugged dark green Samebike vintage styled electric bicycle with thick fat knobby tires brown leather saddle seat and high mounted motorcycle style round headlight parked on an outdoor suburban street under bright natural sunlight" id="mainListingImage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdDQLVXQzQzZ9wvRrKVGyYXIkhlxHadFeP5i1tdV10uSpG0LmrFTtgny9BX9Dz9-RKgT3QblXP4izf0U1bNniKC4Ln-nB_o9PwDoElAizhtCugjGAgTeg2k3F1boLF7pXrjLvo6zQcgtfcmVlqh9GSRI9IH4RYFUrvfcT8FSENSFZxxtaXOiaq2m1QAp2mV0HydScaerDee7Kka2sv7YY-8ErGxhpi6Emx7JqyedQ"/>
+<!-- Quick overlay controls on photo -->
+<div class="absolute top-space-sm right-space-sm flex items-center gap-space-xs">
+<button class="w-8 h-8 rounded-full bg-error text-on-error flex items-center justify-center shadow-md hover:opacity-90 transition-opacity" id="removePhotoBtn" title="Remove photo" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="absolute bottom-2 left-2 px-2.5 py-1 rounded-full bg-inverse-surface/80 text-inverse-on-surface font-label-sm text-label-sm backdrop-blur-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">star</span>
+<span>Cover photo</span>
+</div>
+</div>
+<!-- Dashed Dropzone -->
+<label class="relative flex flex-col items-center justify-center p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer text-center group" for="imageUploadInput">
+<input accept="image/jpeg,image/png,image/webp" class="sr-only" id="imageUploadInput" type="file"/>
+<div class="w-12 h-12 rounded-full bg-surface-container-highest group-hover:bg-primary-fixed group-hover:text-primary transition-colors flex items-center justify-center text-on-surface-variant mb-space-xs">
+<span class="material-symbols-outlined text-[24px]">cloud_upload</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-semibold">Add more photos</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">JPEG, PNG, or WebP (max 5MB each)</span>
+</label>
+</div>
+<!-- Title Input -->
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface mb-space-xs" for="inputTitle">
+              Title <span class="text-error">*</span>
+</label>
+<input class="w-full h-12 px-space-md bg-surface-container rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="inputTitle" placeholder="What are you selling?" required="" type="text" value="Bike for sale"/>
+</div>
+<!-- Category Selector -->
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface mb-space-xs" for="inputCategory">
+              Category <span class="text-error">*</span>
+</label>
+<div class="relative">
+<select class="w-full h-12 pl-space-md pr-10 bg-surface-container rounded-lg font-body-md text-body-md text-on-surface appearance-none focus:outline-none focus:ring-2 focus:ring-primary-container transition-all cursor-pointer" id="inputCategory">
+<option selected="" value="Sporting Goods">Sporting Goods</option>
+<option value="Bicycles & Accessories">Bicycles & Accessories</option>
+<option value="Electronics & Computers">Electronics & Computers</option>
+<option value="Vehicles & Parts">Vehicles & Parts</option>
+<option value="Home & Garden">Home & Garden</option>
+<option value="Clothing & Shoes">Clothing & Shoes</option>
+<option value="Hobbies & Toys">Hobbies & Toys</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 text-on-surface-variant pointer-events-none text-[22px]">expand_more</span>
+</div>
+</div>
+<!-- Price Input -->
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface mb-space-xs" for="inputPrice">
+              Price <span class="text-error">*</span>
+</label>
+<div class="relative flex items-center">
+<span class="absolute left-3.5 font-headline-sm text-headline-sm text-on-surface font-semibold pointer-events-none">$</span>
+<input class="w-full h-12 pl-8 pr-space-md bg-surface-container rounded-lg font-headline-sm text-headline-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="inputPrice" placeholder="0.00" required="" type="text" value="120"/>
+</div>
+</div>
+<!-- Location Input -->
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface mb-space-xs" for="inputLocation">
+              Location <span class="text-error">*</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline pointer-events-none text-[20px]">location_on</span>
+<input class="w-full h-12 pl-10 pr-space-md bg-surface-container rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="inputLocation" placeholder="City, State, or Postal Code" type="text" value="Palo Alto, CA"/>
+</div>
+</div>
+<!-- Contact Email Input -->
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface mb-space-xs" for="inputEmail">
+              Contact Email <span class="text-error">*</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline pointer-events-none text-[20px]">mail</span>
+<input class="w-full h-12 pl-10 pr-space-md bg-surface-container rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="inputEmail" placeholder="your@email.com" required="" type="email" value="gwientjes@gmail.com"/>
+</div>
+</div>
+<!-- Description Textarea -->
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface mb-space-xs" for="inputDescription">
+              Description
+            </label>
+<textarea class="w-full p-space-md bg-surface-container rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container transition-all resize-y" id="inputDescription" placeholder="Describe your item, its condition, and other important details." rows="4">Good condition. Pick up on campus!</textarea>
+<p class="font-body-sm text-body-sm text-outline mt-1 text-right" id="charCount">35 characters</p>
+</div>
+<!-- Item Attributes / Quick Tags -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-space-xs">Item Condition</label>
+<div class="flex flex-wrap gap-space-xs" id="conditionPills">
+<button class="px-space-md py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors" data-condition="New" type="button">New</button>
+<button class="px-space-md py-1.5 rounded-full bg-primary-fixed text-primary font-label-md text-label-md font-semibold transition-colors" data-condition="Like New" type="button">Like New</button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors" data-condition="Good" type="button">Good</button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors" data-condition="Fair" type="button">Fair</button>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="pt-space-md flex flex-col gap-space-sm">
+<button class="w-full h-12 bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg rounded-xl transition-all shadow-md flex items-center justify-center gap-space-xs active:scale-[0.99]" id="submitListingBtn" type="submit">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>Create Listing</span>
+</button>
+<button class="w-full h-11 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded-xl transition-colors text-center" type="button">
+              Cancel & Discard
+            </button>
+</div>
+</form>
+</section>
+<!-- RIGHT COLUMN: Realtime Live Marketplace Preview (7 cols on lg, ~60%) -->
+<section class="lg:col-span-7 sticky top-20 flex flex-col gap-space-sm">
+<!-- Preview Section Header -->
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">visibility</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Preview</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="p-1.5 rounded-lg bg-surface-container text-primary font-label-sm text-label-sm hover:bg-surface-container-high transition-colors flex items-center gap-1" id="previewDeviceDesktop" title="Desktop view" type="button">
+<span class="material-symbols-outlined text-[16px]">desktop_windows</span>
+<span class="hidden sm:inline">Desktop</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container transition-colors flex items-center gap-1" id="previewDeviceMobile" title="Mobile view" type="button">
+<span class="material-symbols-outlined text-[16px]">smartphone</span>
+<span class="hidden sm:inline">Mobile</span>
+</button>
+</div>
+</div>
+<!-- Realistic Marketplace Product Card Preview Container -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-md overflow-hidden transition-all duration-300" id="previewCardWrapper">
+<!-- Preview Image Showcase Hero -->
+<div class="relative w-full aspect-[16/10] bg-surface-container-high overflow-hidden">
+<img alt="Listing Preview Cover" class="w-full h-full object-cover object-center transition-opacity duration-300" data-alt="A rugged dark green Samebike vintage styled electric bicycle with thick fat knobby tires brown leather saddle seat and high mounted motorcycle style round headlight parked on an outdoor suburban street under bright natural sunlight" id="previewImage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTueLSDzboCdlH4VRsqbBZHyBY7eh7PxuI7BavcNA-k2EfozDYSdPQj4ochMixEoGQcGUNUYzbFcnzMGOT0FhZzVJzYOB0vVGo7KFvvBChCVylkt1QLOyAPaoFcwM23YGNKaifQKB0fDGASuMzhk229PdskkQQDj-ORZ7O16QfWHsbrPAE3ZzMXn0aUeULe9fGOzm-vbelNSJNfs4ViCLLI10_HhMzOJ1TNO_Dgx4"/>
+<!-- Empty state placeholder (hidden when image present) -->
+<div class="hidden absolute inset-0 flex flex-col items-center justify-center bg-surface-container-high/60 backdrop-blur-sm text-on-surface-variant p-space-lg text-center" id="previewEmptyPlaceholder">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-space-sm shadow-inner">
+<span class="material-symbols-outlined text-[32px] text-outline">image</span>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface">No photo uploaded yet</p>
+<p class="font-body-sm text-body-sm text-outline mt-1">Photos make listings 80% more likely to sell</p>
+</div>
+<!-- Floating Top Badges -->
+<div class="absolute top-space-md left-space-md flex items-center gap-space-xs">
+<span class="px-space-md py-1 rounded-full bg-inverse-surface/85 text-inverse-on-surface font-label-sm text-label-sm backdrop-blur-md shadow-sm" id="previewConditionTag">
+                Like New
+              </span>
+</div>
+<!-- Floating Action Icons (Preview Mode) -->
+<div class="absolute top-space-md right-space-md flex items-center gap-space-xs">
+<button class="w-10 h-10 rounded-full bg-surface-container-lowest/90 hover:bg-surface-container-lowest text-on-surface flex items-center justify-center shadow-md backdrop-blur-sm transition-transform active:scale-95" title="Save listing">
+<span class="material-symbols-outlined text-[20px]">bookmark_border</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container-lowest/90 hover:bg-surface-container-lowest text-on-surface flex items-center justify-center shadow-md backdrop-blur-sm transition-transform active:scale-95" title="Share listing">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+</div>
+<div class="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-inverse-surface/75 text-inverse-on-surface font-label-sm text-label-sm backdrop-blur-sm">
+              1 of 1
+            </div>
+</div>
+<!-- Preview Content Details Area -->
+<div class="p-space-lg sm:p-space-xl flex flex-col gap-space-md">
+<!-- Price and Title -->
+<div class="flex flex-col gap-space-xs">
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight break-words" id="previewTitle">
+                Bike for sale
+              </h2>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-xl text-headline-xl text-on-surface font-extrabold text-primary" id="previewPrice">
+                  $120
+                </span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">Negotiable</span>
+</div>
+</div>
+<!-- Meta Information: Time, Location, Category -->
+<div class="flex flex-col gap-1 py-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
+<span>Listed just now</span>
+<span>•</span>
+<span class="text-on-surface font-medium" id="previewLocation">in Palo Alto, CA</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">category</span>
+<span>Category:</span>
+<span class="text-on-surface font-medium" id="previewCategory">Sporting Goods</span>
+</div>
+</div>
+<!-- Quick Action CTA Simulation -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs my-space-xs">
+<button class="h-10 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center gap-1.5 shadow-sm hover:bg-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Message</span>
+</button>
+<button class="h-10 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">local_offer</span>
+<span>Make Offer</span>
+</button>
+<button class="h-10 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">bookmark</span>
+<span>Save</span>
+</button>
+<button class="h-10 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span>Share</span>
+</button>
+</div>
+<!-- Description Section -->
+<div class="pt-space-sm flex flex-col gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Description</h3>
+<p class="font-body-md text-body-md text-on-surface whitespace-pre-wrap leading-relaxed" id="previewDescription">Good condition. Pick up on campus!</p>
+</div>
+<!-- Seller Profile Information Card -->
+<div class="pt-space-md mt-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-sm">Seller Information</h3>
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="relative">
+<div class="w-12 h-12 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-headline-sm text-headline-sm font-bold shadow-sm">
+                      G
+                    </div>
+<span class="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-primary-container text-on-primary flex items-center justify-center ring-2 ring-surface-container-lowest" title="Verified seller identity">
+<span class="material-symbols-outlined text-[12px] font-bold">check</span>
+</span>
+</div>
+<div>
+<span class="font-label-lg text-label-lg text-on-surface block font-bold">Gerrit W.</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block truncate max-w-[220px] sm:max-w-none" id="previewEmail">gwientjes@gmail.com</span>
+<div class="flex items-center gap-1 text-outline font-label-sm text-label-sm mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-tertiary">verified_user</span>
+<span>Verified Community Member • Joined 2021</span>
+</div>
+</div>
+</div>
+<div class="hidden sm:flex flex-col items-end">
+<div class="flex items-center text-primary text-[14px]">
+<span class="material-symbols-outlined text-[16px] text-amber-500 fill-current" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold text-on-surface ml-1">5.0</span>
+<span class="text-outline font-body-sm text-body-sm ml-1">(24)</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Typically replies in 1 hr</span>
+</div>
+</div>
+</div>
+<!-- Embedded Interactive Safety & Campus Pickup Notice -->
+<div class="mt-space-xs p-space-md rounded-xl bg-surface-container flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5 shrink-0">shield_lock</span>
+<div class="text-on-surface-variant font-body-sm text-body-sm">
+<span class="font-label-md text-label-md text-on-surface block">Safe Trading Zone Recommended</span>
+                Meet in well-lit public spots like the campus student union or public transit center. Never wire funds ahead of time.
+              </div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Interactive Live Sync Script -->
+<script>
+    (function initListingSync() {
+      const inputTitle = document.getElementById('inputTitle');
+      const inputPrice = document.getElementById('inputPrice');
+      const inputLocation = document.getElementById('inputLocation');
+      const inputCategory = document.getElementById('inputCategory');
+      const inputEmail = document.getElementById('inputEmail');
+      const inputDescription = document.getElementById('inputDescription');
+      const charCount = document.getElementById('charCount');
+
+      const previewTitle = document.getElementById('previewTitle');
+      const previewPrice = document.getElementById('previewPrice');
+      const previewLocation = document.getElementById('previewLocation');
+      const previewCategory = document.getElementById('previewCategory');
+      const previewEmail = document.getElementById('previewEmail');
+      const previewDescription = document.getElementById('previewDescription');
+      const previewConditionTag = document.getElementById('previewConditionTag');
+      
+      const photoPreviewContainer = document.getElementById('photoPreviewContainer');
+      const previewImage = document.getElementById('previewImage');
+      const previewEmptyPlaceholder = document.getElementById('previewEmptyPlaceholder');
+      const removePhotoBtn = document.getElementById('removePhotoBtn');
+      const imageUploadInput = document.getElementById('imageUploadInput');
+      const photoCountLabel = document.getElementById('photoCountLabel');
+
+      // Title synchronization
+      inputTitle?.addEventListener('input', (e) => {
+        const val = e.target.value.trim();
+        previewTitle.textContent = val ? val : 'Title';
+      });
+
+      // Price synchronization with dynamic currency formatting
+      inputPrice?.addEventListener('input', (e) => {
+        let val = e.target.value.replace(/[^0-9.]/g, '');
+        if (val) {
+          previewPrice.textContent = '$' + val;
+        } else {
+          previewPrice.textContent = '$0';
+        }
+      });
+
+      // Location synchronization
+      inputLocation?.addEventListener('input', (e) => {
+        const val = e.target.value.trim();
+        previewLocation.textContent = val ? `in ${val}` : 'Location';
+      });
+
+      // Category synchronization
+      inputCategory?.addEventListener('change', (e) => {
+        previewCategory.textContent = e.target.value;
+      });
+
+      // Email synchronization
+      inputEmail?.addEventListener('input', (e) => {
+        const val = e.target.value.trim();
+        previewEmail.textContent = val ? val : 'seller@example.com';
+      });
+
+      // Description synchronization & character counter
+      inputDescription?.addEventListener('input', (e) => {
+        const val = e.target.value;
+        previewDescription.textContent = val.trim() ? val : 'No description provided.';
+        if (charCount) {
+          charCount.textContent = `${val.length} characters`;
+        }
+      });
+
+      // Condition buttons toggle
+      const conditionButtons = document.querySelectorAll('#conditionPills button');
+      conditionButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          conditionButtons.forEach(b => {
+            b.classList.remove('bg-primary-fixed', 'text-primary', 'font-semibold');
+            b.classList.add('bg-surface-container', 'text-on-surface-variant');
+          });
+          btn.classList.add('bg-primary-fixed', 'text-primary', 'font-semibold');
+          btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+          if (previewConditionTag) {
+            previewConditionTag.textContent = btn.getAttribute('data-condition');
+          }
+        });
+      });
+
+      // Remove photo handler
+      removePhotoBtn?.addEventListener('click', () => {
+        photoPreviewContainer.classList.add('hidden');
+        previewImage.classList.add('hidden');
+        previewEmptyPlaceholder.classList.remove('hidden');
+        photoCountLabel.textContent = '0 / 10 photos';
+      });
+
+      // Add image placeholder / simulated re-upload
+      imageUploadInput?.addEventListener('change', (e) => {
+        const file = e.target.files?.[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            const resultUrl = event.target?.result;
+            const mainImg = document.getElementById('mainListingImage');
+            if (mainImg) mainImg.src = resultUrl;
+            previewImage.src = resultUrl;
+            photoPreviewContainer.classList.remove('hidden');
+            previewImage.classList.remove('hidden');
+            previewEmptyPlaceholder.classList.add('hidden');
+            photoCountLabel.textContent = '1 / 10 photos';
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      // Desktop vs Mobile preview switcher
+      const btnDesk = document.getElementById('previewDeviceDesktop');
+      const btnMob = document.getElementById('previewDeviceMobile');
+      const previewCardWrapper = document.getElementById('previewCardWrapper');
+
+      btnDesk?.addEventListener('click', () => {
+        btnDesk.classList.add('bg-surface-container', 'text-primary');
+        btnDesk.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+        btnMob.classList.remove('bg-surface-container', 'text-primary');
+        btnMob.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+        previewCardWrapper.classList.remove('max-w-sm', 'mx-auto');
+      });
+
+      btnMob?.addEventListener('click', () => {
+        btnMob.classList.add('bg-surface-container', 'text-primary');
+        btnMob.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+        btnDesk.classList.remove('bg-surface-container', 'text-primary');
+        btnDesk.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+        previewCardWrapper.classList.add('max-w-sm', 'mx-auto');
+      });
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-xl mt-space-xl"><div class="w-full px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm"><div class="flex items-center gap-space-lg"><span class="font-label-md text-label-md text-on-surface">Marketplace © 2025</span><a class="hover:text-on-surface transition-colors" href="#">Privacy</a><a class="hover:text-on-surface transition-colors" href="#">Terms</a><a class="hover:text-on-surface transition-colors" href="#">Advertising</a><a class="hover:text-on-surface transition-colors" href="#">Help Center</a></div><div class="text-outline font-label-sm text-label-sm">Meta Platforms • Community Commerce</div></div></footer></body></html>
+
+<!-- Search Results & UI States -->
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"error-container":"#ffdad6","secondary":"#0058bc","inverse-primary":"#b3c5ff","surface-tint":"#0054d7","on-tertiary-fixed-variant":"#00458e","on-tertiary-fixed":"#001b3e","surface-variant":"#e0e3e6","on-surface":"#191c1e","on-background":"#191c1e","surface":"#f7f9fc","surface-container-highest":"#e0e3e6","on-surface-variant":"#424656","primary-fixed":"#dbe1ff","on-secondary-container":"#fefcff","surface-bright":"#f7f9fc","on-tertiary-container":"#f8f8ff","on-secondary-fixed":"#001a41","surface-container-lowest":"#ffffff","primary":"#0050cd","inverse-on-surface":"#eff1f4","on-primary":"#ffffff","surface-container-low":"#f2f4f7","primary-container":"#0866ff","on-primary-fixed-variant":"#003fa5","tertiary":"#0058b1","surface-container-high":"#e6e8eb","on-error-container":"#93000a","background":"#f7f9fc","on-primary-fixed":"#00184a","surface-container":"#eceef1","inverse-surface":"#2d3133","tertiary-container":"#0070de","on-primary-container":"#f9f7ff","primary-fixed-dim":"#b3c5ff","outline-variant":"#c2c6d8","surface-dim":"#d8dadd","on-secondary-fixed-variant":"#004493","on-error":"#ffffff","error":"#ba1a1a","outline":"#727687","secondary-container":"#0070eb","tertiary-fixed":"#d7e3ff","on-tertiary":"#ffffff","secondary-fixed":"#d8e2ff","on-secondary":"#ffffff","secondary-fixed-dim":"#adc6ff","tertiary-fixed-dim":"#aac7ff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-sm":"0.5rem","space-xs":"0.25rem","margin":"1rem","space-lg":"1rem","gutter":"1rem","space-md":"0.75rem","space-xl":"1.5rem","gutter-desktop":"1.25rem","margin-desktop":"2rem"},"fontFamily":{"headline-xl":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"]},"fontSize":{"headline-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["13px",{"lineHeight":"16px","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg":["24px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"700"}],"headline-sm":["17px",{"lineHeight":"22px","fontWeight":"600"}],"label-lg":["15px",{"lineHeight":"20px","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"headline-xl-mobile":["28px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-md":["20px",{"lineHeight":"26px","fontWeight":"600"}]}}}};</script></head><body class="bg-surface-container-low font-body-md text-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest shadow-[0_1px_4px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-margin-desktop flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md shrink-0"><img alt="Marketplace Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBycXvUAJisF56jWwaUwvkWig-Mo-VSROCAWYD2UE9wNJ8i8K6Y8FlOXSLtY3C2n5eZDA7Sn0NGRSgdw3rZqcU0Ie8d0_6Oo14peEkrsUBI4dURvib_FuCTHY4WvI5fWIjESr_vShAEM-6fBwMFEgjV68qLKH4g1RbwYvVhZLoLFVa2gUutz4sPaXmGEa9cNbtTjNtfXqfUe2zuMjQoL2p3-8En3gtI7vA040shF2ws"/><span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight hidden sm:inline-block">Marketplace</span><div class="relative ml-space-xs hidden md:flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline pointer-events-none text-[20px]">search</span><input class="w-64 lg:w-80 h-10 pl-10 pr-4 bg-surface-container rounded-full font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" placeholder="Search Marketplace" type="text"/></div></div><nav class="hidden xl:flex items-center h-full gap-space-xl" data-active-classes="text-primary border-b-2 border-primary font-bold"><a class="h-full flex items-center px-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#">Home</a><a aria-current="page" class="h-full flex items-center px-space-sm transition-colors text-primary border-b-2 border-primary font-bold" data-path="browse" href="#">Browse</a><a class="h-full flex items-center px-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="notifications" href="#">Notifications</a><a class="h-full flex items-center px-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="inbox" href="#">Inbox</a></nav><div class="flex items-center gap-space-sm shrink-0"><a class="hidden sm:inline-flex items-center justify-center gap-space-xs h-10 px-space-lg bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg rounded-full transition-colors shadow-sm" data-path="create-listing" href="#"><span class="material-symbols-outlined text-[18px]">add</span><span>Create New Listing</span></a><div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer text-on-surface"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2.5 h-2.5 bg-error rounded-full ring-2 ring-surface-container-lowest"></span></div><div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer text-on-surface"><span class="material-symbols-outlined text-[20px]">chat</span><span class="absolute top-1 right-1 w-2.5 h-2.5 bg-error rounded-full ring-2 ring-surface-container-lowest"></span></div><div class="ml-space-xs cursor-pointer"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3HUOma_gFVDzjLfSSBPqWdK_IkuDtXtFCeiSQnZoMQqoutjbK8zEnsrk9ZZxtVs2NA8eDxhYsK8iaO_oS7tkX5SOcbpkLYgqqT8BNFT6d7tNEn6D-_DtbHoW7ksSJQ6Xa0W7dgSA7xUkkdbGDUzoOahBvyBhp_hE2yrDhem3ZBHgjChLgx7QIvaThhzDG3Y8uWImHzvewttOT2UjWFhCsw0kACxkiV2oy3bipy6Y"/></div></div></div></header><main class="w-full pt-16 bg-surface-container-low min-h-screen"><div class="flex flex-col w-full">
+<div class="w-full px-margin-desktop py-space-lg flex flex-col lg:flex-row gap-gutter-desktop items-start">
+<!-- Left Navigation & Filtering Rail -->
+<aside class="w-full lg:w-80 shrink-0 flex flex-col gap-space-md">
+<!-- Quick Action: Create / Account Rail -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs px-space-xs">Create & Manage</h2>
+<a class="flex items-center gap-space-sm p-space-sm rounded-lg hover:bg-surface-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-primary text-[20px]">post_add</span>
+<span class="font-label-lg text-label-lg">Create new listing</span>
+</a>
+<a class="flex items-center gap-space-sm p-space-sm rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-[20px]">sell</span>
+<span class="font-label-md text-label-md">Your listings</span>
+</a>
+<a class="flex items-center gap-space-sm p-space-sm rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-[20px]">help_center</span>
+<span class="font-label-md text-label-md">Seller help</span>
+</a>
+</div>
+<!-- Filters Panel -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Filters</h3>
+<button class="font-label-md text-label-md text-primary hover:underline" id="resetFiltersBtn">Reset all</button>
+</div>
+<!-- Location Context -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Location & Distance</span>
+<div class="flex items-center justify-between p-space-sm bg-surface-container rounded-lg cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
+<span class="font-label-md text-label-md text-on-surface">Palo Alto, CA</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Within 20 mi</span>
+</div>
+</div>
+<!-- Price Range -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Price Range (₱)</span>
+<div class="flex items-center gap-space-xs">
+<div class="relative w-full">
+<span class="absolute left-2.5 top-2 text-on-surface-variant font-label-sm">₱</span>
+<input class="w-full pl-6 pr-2 py-1.5 bg-surface-container rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Min" type="number" value="15000"/>
+</div>
+<span class="text-outline font-label-md">-</span>
+<div class="relative w-full">
+<span class="absolute left-2.5 top-2 text-on-surface-variant font-label-sm">₱</span>
+<input class="w-full pl-6 pr-2 py-1.5 bg-surface-container rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Max" type="number" value="45000"/>
+</div>
+</div>
+</div>
+<!-- Condition -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Condition</span>
+<div class="flex flex-col gap-space-xs">
+<label class="flex items-center gap-space-sm cursor-pointer p-space-xs rounded hover:bg-surface-container transition-colors">
+<input checked="" class="w-4 h-4 rounded text-primary-container focus:ring-primary-container" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface">New</span>
+</label>
+<label class="flex items-center gap-space-sm cursor-pointer p-space-xs rounded hover:bg-surface-container transition-colors">
+<input checked="" class="w-4 h-4 rounded text-primary-container focus:ring-primary-container" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface">Used - Like New</span>
+</label>
+<label class="flex items-center gap-space-sm cursor-pointer p-space-xs rounded hover:bg-surface-container transition-colors">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-primary-container" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface">Used - Good</span>
+</label>
+<label class="flex items-center gap-space-sm cursor-pointer p-space-xs rounded hover:bg-surface-container transition-colors">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-primary-container" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface">Used - Fair</span>
+</label>
+</div>
+</div>
+<!-- Date Listed -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Date Listed</span>
+<div class="flex flex-col gap-space-xs">
+<label class="flex items-center gap-space-sm cursor-pointer p-space-xs rounded hover:bg-surface-container transition-colors">
+<input checked="" class="w-4 h-4 text-primary-container focus:ring-primary-container" name="date_filter" type="radio"/>
+<span class="font-body-sm text-body-sm text-on-surface">All listings</span>
+</label>
+<label class="flex items-center gap-space-sm cursor-pointer p-space-xs rounded hover:bg-surface-container transition-colors">
+<input class="w-4 h-4 text-primary-container focus:ring-primary-container" name="date_filter" type="radio"/>
+<span class="font-body-sm text-body-sm text-on-surface">Past 24 hours</span>
+</label>
+<label class="flex items-center gap-space-sm cursor-pointer p-space-xs rounded hover:bg-surface-container transition-colors">
+<input class="w-4 h-4 text-primary-container focus:ring-primary-container" name="date_filter" type="radio"/>
+<span class="font-body-sm text-body-sm text-on-surface">Past 7 days</span>
+</label>
+<label class="flex items-center gap-space-sm cursor-pointer p-space-xs rounded hover:bg-surface-container transition-colors">
+<input class="w-4 h-4 text-primary-container focus:ring-primary-container" name="date_filter" type="radio"/>
+<span class="font-body-sm text-body-sm text-on-surface">Past 30 days</span>
+</label>
+</div>
+</div>
+<!-- Categories Quick Links -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Categories</span>
+<div class="flex flex-col gap-1">
+<a class="p-space-xs rounded-lg font-label-md text-label-md bg-secondary-fixed/50 text-secondary font-semibold" href="#">Electronics & Computers</a>
+<a class="p-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container transition-colors" href="#">Vehicles</a>
+<a class="p-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container transition-colors" href="#">Home Goods</a>
+<a class="p-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container transition-colors" href="#">Apparel</a>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<section class="flex-1 w-full flex flex-col gap-space-lg min-w-0">
+<!-- Interactive Active Search Bar Section -->
+<div class="w-full bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col md:flex-row items-center gap-space-md">
+<div class="relative flex-1 w-full">
+<span class="material-symbols-outlined absolute left-3.5 top-2.5 text-primary text-[20px]">search</span>
+<input class="w-full pl-10 pr-10 py-2 bg-surface-container rounded-full font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container" id="searchInput" type="text" value="laptop"/>
+<button class="absolute right-3 top-2.5 text-on-surface-variant hover:text-on-surface flex items-center justify-center p-0.5 rounded-full hover:bg-surface-container-high transition-colors" id="clearSearchBtn" title="Clear query">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm w-full md:w-auto shrink-0 justify-between md:justify-end">
+<button class="h-10 px-space-lg bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg rounded-full shadow-sm transition-colors flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">search</span>
+<span>Search</span>
+</button>
+</div>
+</div>
+<!-- Search Query Header & Sorting Dropdown -->
+<div class="w-full flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Results for “laptop”</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">in Palo Alto, CA • 24 listings available</p>
+</div>
+<!-- Sorting selector -->
+<div class="flex items-center gap-space-xs self-start sm:self-auto">
+<span class="font-label-md text-label-md text-on-surface-variant">Sort by:</span>
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest border-none font-label-md text-label-md text-on-surface py-2 pl-3 pr-8 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container cursor-pointer">
+<option selected="">Recommended</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Date Listed: Newest</option>
+<option>Distance: Nearest First</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2.5 pointer-events-none text-[18px] text-outline">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Quick Filter Chips -->
+<div class="w-full flex items-center gap-space-xs overflow-x-auto pb-1">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-secondary-fixed/50 text-secondary rounded-full font-label-sm text-label-sm">
+<span>Electronics</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-secondary-fixed/50 text-secondary rounded-full font-label-sm text-label-sm">
+<span>Under ₱40,000</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full font-label-sm text-label-sm cursor-pointer transition-colors">
+<span>Free delivery</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full font-label-sm text-label-sm cursor-pointer transition-colors">
+<span>Verified sellers only</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full font-label-sm text-label-sm cursor-pointer transition-colors">
+<span>Offers shipping</span>
+</span>
+</div>
+<!-- Main Result Cards Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-gutter-desktop w-full">
+<!-- Product 1: Gaming Laptop -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A sleek black high performance gaming laptop with custom RGB backlit keyboard glowing cyan and magenta, opened on a minimalist wood studio desk with clean ambient evening lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6BFUGycD0nEgwGPcmptUm5GxHE21J0MNjLwUp-Q93Z01jOpPfAEiEi8TeXNOom-Dj7P1A4voI6rAVMVPW2fFPiYqtKvSr1Slg91BY3QmvBe_gGV0fG016-3Idv9FUSzk7v9VgCL_qH1CZqxvSdH6uAfguc96EYT7h3IiqIznTWJGCERryHhOuwnHqvJb1lt6iw8ySwcYt2twfWHiHrAXeYK6uYNIIkOn_ks3VqW8"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 bg-on-surface/80 backdrop-blur-sm text-surface-container-lowest rounded font-label-sm text-label-sm">Like New</span>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error hover:scale-110 transition-all shadow-sm" title="Save listing">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col gap-0.5">
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">₱32,000</div>
+<h3 class="font-body-md text-body-md text-on-surface truncate group-hover:text-primary transition-colors">RTX 4060 Gaming Laptop 16GB</h3>
+<div class="font-body-sm text-body-sm text-outline truncate">Listed 2 hours ago • Palo Alto, CA</div>
+</div>
+</article>
+<!-- Product 2: MacBook Air -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A slim silver Apple MacBook Air M2 laptop sitting angled on a bright white marble workspace next to a small green succulent and espresso mug under soft daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwHv0LFKwO8qZ0AHqh51u1pEK2haibKdyIIkoCrpvzBzfXsmq79ILLJG-aGqdaFU_uO9cuagSes-ojsbi580odF9rdLomMs2ohp8gNOSNaFiXxDJAqWP3ITRtML7ZQoSxfvNtwHIqcwhotJh8qp1kaEyrSr8nRBJPyc0ROGoBp1rMyMGHcK-k2auKU0FAuNbtFJfictWXp6DQ_S1jSlbncRke3YgdX5PO_lUPICoI"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 bg-primary-container text-on-primary rounded font-label-sm text-label-sm">Top Pick</span>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error hover:scale-110 transition-all shadow-sm" title="Save listing">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col gap-0.5">
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">₱28,000</div>
+<h3 class="font-body-md text-body-md text-on-surface truncate group-hover:text-primary transition-colors">MacBook Air M2 256GB Silver</h3>
+<div class="font-body-sm text-body-sm text-outline truncate">Listed yesterday • Menlo Park, CA</div>
+</div>
+</article>
+<!-- Product 3: ThinkPad X1 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A matte carbon-black ThinkPad X1 Carbon laptop open at a 45 degree angle showcasing the iconic red TrackPoint nub on a modern concrete desk in an architectural studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpJt5uwsAPmsRCSj7CsnDHIAp7t4exZONMLrPnXoCFUtsYaDI8SeqzHzrt59mPB3VSGJPosmDE3xxZt_OAZLqJBiQ27Fwsn6Qo0okGjuftnH_bMLbei7CCrO1I7_7qvhoWI10H6Od7lyL3wYgnjagg8FNUXT8DPcQWokOCaOLa40adZXCvmWsVIeUmthXANV1jfOnJa256O6vWqU0sUkuyFOonbuKgJIO179iJYVg"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 bg-on-surface/80 backdrop-blur-sm text-surface-container-lowest rounded font-label-sm text-label-sm">Good</span>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error hover:scale-110 transition-all shadow-sm" title="Save listing">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col gap-0.5">
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">₱22,500</div>
+<h3 class="font-body-md text-body-md text-on-surface truncate group-hover:text-primary transition-colors">Lenovo ThinkPad X1 Carbon Gen 9</h3>
+<div class="font-body-sm text-body-sm text-outline truncate">Listed 3 days ago • Mountain View, CA</div>
+</div>
+</article>
+<!-- Product 4: Dell XPS 15 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A Dell XPS 15 premium ultraportable aluminum laptop with an infinity edge OLED screen glowing vividly on a light oak coffee table in a sunny apartment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4gYYOKPdJcWvEgyta64jh3GbZ8UekXtlFbuuKF5lLga902RRBX8_8wVxV262uuKuRUzO-pHvGhJ_nraWOsNOquTPlg33joMO8yVTYky7w1RPDr3vJ6KuO8GbWWy51Ky9kENt4Ks0eUNHGf_1B3VMOOznIy1p6vcBDQwmBMkV0FlWVN1mLNyBVhoIbSvFzq4DuUHPi1dLTaJQlB31Y3Y9KJeG077kbEnFSxkg4XCI"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 bg-secondary-container text-on-secondary rounded font-label-sm text-label-sm">Verified</span>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm flex items-center justify-center text-on-surface hover:text-error hover:scale-110 transition-all shadow-sm" title="Save listing">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col gap-0.5">
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">₱35,000</div>
+<h3 class="font-body-md text-body-md text-on-surface truncate group-hover:text-primary transition-colors">Dell XPS 15 4K Touch 32GB RAM</h3>
+<div class="font-body-sm text-body-sm text-outline truncate">Listed 5 hours ago • Palo Alto, CA</div>
+</div>
+</article>
+</div>
+<!-- Dedicated Application State Showcase Section -->
+<div class="w-full mt-space-xl pt-space-lg flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-6 bg-primary-container rounded-full"></span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Application States Showcase</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live review of system feedback, empty states, and transition skeletons</p>
+</div>
+</div>
+<div class="hidden sm:flex items-center gap-space-xs bg-surface-container p-1 rounded-lg">
+<span class="px-2.5 py-1 text-on-surface font-label-sm text-label-sm rounded bg-surface-container-lowest shadow-sm">All States</span>
+<span class="px-2.5 py-1 text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface cursor-pointer">Spec Ready</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-desktop w-full">
+<!-- STATE A: No Results Found Empty State -->
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col items-center text-center justify-center min-h-[300px] relative overflow-hidden">
+<span class="absolute top-3 left-3 px-2 py-0.5 bg-surface-container text-on-surface-variant rounded font-label-sm text-label-sm">State A: Search Miss</span>
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined text-[32px]">search_off</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">No results found for “vintage typewriter”</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mb-space-lg">Try checking your spelling, removing applied filters, or using more general search terms.</p>
+<button class="px-space-lg py-2 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg rounded-full transition-colors flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">filter_alt_off</span>
+<span>Clear filters</span>
+</button>
+</div>
+<!-- STATE B: Loading Skeleton State -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md relative overflow-hidden">
+<span class="absolute top-3 left-3 z-10 px-2 py-0.5 bg-surface-container text-on-surface-variant rounded font-label-sm text-label-sm">State B: Loading Skeleton</span>
+<div class="grid grid-cols-2 gap-space-md pt-space-md">
+<!-- Skeleton Item 1 -->
+<div class="flex flex-col gap-space-xs animate-pulse">
+<div class="w-full aspect-square bg-surface-container-high rounded-xl"></div>
+<div class="w-1/2 h-5 bg-surface-container-high rounded mt-1"></div>
+<div class="w-full h-4 bg-surface-container-high rounded"></div>
+<div class="w-2/3 h-3 bg-surface-container-high rounded"></div>
+</div>
+<!-- Skeleton Item 2 -->
+<div class="flex flex-col gap-space-xs animate-pulse">
+<div class="w-full aspect-square bg-surface-container-high rounded-xl"></div>
+<div class="w-2/5 h-5 bg-surface-container-high rounded mt-1"></div>
+<div class="w-4/5 h-4 bg-surface-container-high rounded"></div>
+<div class="w-1/2 h-3 bg-surface-container-high rounded"></div>
+</div>
+</div>
+<div class="w-full flex items-center justify-between text-outline font-label-sm text-label-sm pt-2">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] animate-spin">refresh</span>
+<span>Fetching live network listings...</span>
+</span>
+<span>45% cached</span>
+</div>
+</div>
+<!-- STATE D: Empty Marketplace Category State -->
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col items-center text-center justify-center min-h-[300px] relative overflow-hidden md:col-span-2">
+<span class="absolute top-3 left-3 px-2 py-0.5 bg-surface-container text-on-surface-variant rounded font-label-sm text-label-sm">State D: Empty Category</span>
+<div class="w-16 h-16 rounded-full bg-secondary-fixed/40 flex items-center justify-center text-secondary mb-space-md">
+<span class="material-symbols-outlined text-[32px]">storefront</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">No listings yet in this category</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">Be the first to share something with your local community. It only takes a couple of minutes to publish.</p>
+<div class="flex flex-wrap items-center justify-center gap-space-sm">
+<button class="px-space-lg py-2.5 bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg rounded-full shadow-sm transition-colors flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Create Listing</span>
+</button>
+<button class="px-space-lg py-2.5 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg rounded-full transition-colors">
+                Explore nearby communities
+              </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- STATE C: Listing Published Success Toast Notification (Pinned Bottom Right) -->
+<div class="fixed bottom-6 right-6 z-50 max-w-md w-full sm:w-auto bg-surface-container-lowest text-on-surface rounded-xl shadow-xl p-space-md flex items-center gap-space-md transform translate-y-0 transition-transform duration-300" id="toastNotification">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[24px]">check_circle</span>
+</div>
+<div class="flex-1 min-w-0 pr-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wide">State C: Success</span>
+<span class="text-outline">•</span>
+<span class="font-label-sm text-label-sm text-outline">Just now</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface truncate">Your listing “Bike for sale” is now live!</p>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="px-space-sm py-1 bg-primary-container text-on-primary font-label-md text-label-md rounded-full hover:bg-primary transition-colors">
+        View Listing
+      </button>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" onclick="document.getElementById('toastNotification').remove()" title="Dismiss">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Interactive Scripts -->
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const clearSearchBtn = document.getElementById('clearSearchBtn');
+    const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+
+    if (clearSearchBtn && searchInput) {
+      clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        searchInput.focus();
+      });
+    }
+
+    if (resetFiltersBtn) {
+      resetFiltersBtn.addEventListener('click', () => {
+        document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        if (searchInput) searchInput.value = '';
+      });
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-xl mt-space-xl"><div class="w-full px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm"><div class="flex items-center gap-space-lg"><span class="font-label-md text-label-md text-on-surface">Marketplace © 2025</span><a class="hover:text-on-surface transition-colors" href="#">Privacy</a><a class="hover:text-on-surface transition-colors" href="#">Terms</a><a class="hover:text-on-surface transition-colors" href="#">Advertising</a><a class="hover:text-on-surface transition-colors" href="#">Help Center</a></div><div class="text-outline font-label-sm text-label-sm">Meta Platforms • Community Commerce</div></div></footer></body></html>
+
+<!-- Listing Details & Message Seller -->
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"error-container":"#ffdad6","secondary":"#0058bc","inverse-primary":"#b3c5ff","surface-tint":"#0054d7","on-tertiary-fixed-variant":"#00458e","on-tertiary-fixed":"#001b3e","surface-variant":"#e0e3e6","on-surface":"#191c1e","on-background":"#191c1e","surface":"#f7f9fc","surface-container-highest":"#e0e3e6","on-surface-variant":"#424656","primary-fixed":"#dbe1ff","on-secondary-container":"#fefcff","surface-bright":"#f7f9fc","on-tertiary-container":"#f8f8ff","on-secondary-fixed":"#001a41","surface-container-lowest":"#ffffff","primary":"#0050cd","inverse-on-surface":"#eff1f4","on-primary":"#ffffff","surface-container-low":"#f2f4f7","primary-container":"#0866ff","on-primary-fixed-variant":"#003fa5","tertiary":"#0058b1","surface-container-high":"#e6e8eb","on-error-container":"#93000a","background":"#f7f9fc","on-primary-fixed":"#00184a","surface-container":"#eceef1","inverse-surface":"#2d3133","tertiary-container":"#0070de","on-primary-container":"#f9f7ff","primary-fixed-dim":"#b3c5ff","outline-variant":"#c2c6d8","surface-dim":"#d8dadd","on-secondary-fixed-variant":"#004493","on-error":"#ffffff","error":"#ba1a1a","outline":"#727687","secondary-container":"#0070eb","tertiary-fixed":"#d7e3ff","on-tertiary":"#ffffff","secondary-fixed":"#d8e2ff","on-secondary":"#ffffff","secondary-fixed-dim":"#adc6ff","tertiary-fixed-dim":"#aac7ff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-sm":"0.5rem","space-xs":"0.25rem","margin":"1rem","space-lg":"1rem","gutter":"1rem","space-md":"0.75rem","space-xl":"1.5rem","gutter-desktop":"1.25rem","margin-desktop":"2rem"},"fontFamily":{"headline-xl":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"]},"fontSize":{"headline-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["13px",{"lineHeight":"16px","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg":["24px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"700"}],"headline-sm":["17px",{"lineHeight":"22px","fontWeight":"600"}],"label-lg":["15px",{"lineHeight":"20px","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"headline-xl-mobile":["28px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-md":["20px",{"lineHeight":"26px","fontWeight":"600"}]}}}};</script></head><body class="bg-surface-container-low font-body-md text-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest shadow-[0_1px_4px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-margin-desktop flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md shrink-0"><img alt="Marketplace Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBycXvUAJisF56jWwaUwvkWig-Mo-VSROCAWYD2UE9wNJ8i8K6Y8FlOXSLtY3C2n5eZDA7Sn0NGRSgdw3rZqcU0Ie8d0_6Oo14peEkrsUBI4dURvib_FuCTHY4WvI5fWIjESr_vShAEM-6fBwMFEgjV68qLKH4g1RbwYvVhZLoLFVa2gUutz4sPaXmGEa9cNbtTjNtfXqfUe2zuMjQoL2p3-8En3gtI7vA040shF2ws"/><span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight hidden sm:inline-block">Marketplace</span><div class="relative ml-space-xs hidden md:flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline pointer-events-none text-[20px]">search</span><input class="w-64 lg:w-80 h-10 pl-10 pr-4 bg-surface-container rounded-full font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" placeholder="Search Marketplace" type="text"/></div></div><nav class="hidden xl:flex items-center h-full gap-space-xl" data-active-classes="text-primary border-b-2 border-primary font-bold"><a class="h-full flex items-center px-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#">Home</a><a aria-current="page" class="h-full flex items-center px-space-sm transition-colors text-primary border-b-2 border-primary font-bold" data-path="browse" href="#">Browse</a><a class="h-full flex items-center px-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="notifications" href="#">Notifications</a><a class="h-full flex items-center px-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="inbox" href="#">Inbox</a></nav><div class="flex items-center gap-space-sm shrink-0"><a class="hidden sm:inline-flex items-center justify-center gap-space-xs h-10 px-space-lg bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg rounded-full transition-colors shadow-sm" data-path="create-listing" href="#"><span class="material-symbols-outlined text-[18px]">add</span><span>Create New Listing</span></a><div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer text-on-surface"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2.5 h-2.5 bg-error rounded-full ring-2 ring-surface-container-lowest"></span></div><div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer text-on-surface"><span class="material-symbols-outlined text-[20px]">chat</span><span class="absolute top-1 right-1 w-2.5 h-2.5 bg-error rounded-full ring-2 ring-surface-container-lowest"></span></div><div class="ml-space-xs cursor-pointer"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3HUOma_gFVDzjLfSSBPqWdK_IkuDtXtFCeiSQnZoMQqoutjbK8zEnsrk9ZZxtVs2NA8eDxhYsK8iaO_oS7tkX5SOcbpkLYgqqT8BNFT6d7tNEn6D-_DtbHoW7ksSJQ6Xa0W7dgSA7xUkkdbGDUzoOahBvyBhp_hE2yrDhem3ZBHgjChLgx7QIvaThhzDG3Y8uWImHzvewttOT2UjWFhCsw0kACxkiV2oy3bipy6Y"/></div></div></div></header><main class="w-full pt-16 bg-surface-container-low min-h-screen"><div class="flex flex-col w-full max-w-7xl mx-auto px-margin md:px-margin-desktop py-space-lg">
+<!-- Breadcrumb & Top Bar -->
+<div class="flex items-center justify-between mb-space-lg">
+<a class="inline-flex items-center gap-space-xs text-primary font-label-lg text-label-lg hover:underline transition-colors group" data-path="browse" href="#">
+<span class="material-symbols-outlined text-[20px] transition-transform group-hover:-translate-x-1">arrow_back</span>
+<span>Back to Marketplace</span>
+</a>
+<div class="flex items-center gap-space-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant hidden sm:inline">Listed in Sporting Goods</span>
+<span class="text-outline hidden sm:inline">•</span>
+<span class="font-label-sm text-label-sm px-2.5 py-1 bg-surface-container-high text-on-surface rounded-full">ID: #f8ccdd18</span>
+</div>
+</div>
+<!-- Main 2-Column Detail Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- LEFT COLUMN: Product Gallery (7 cols on lg) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Main Featured Image Container -->
+<div class="relative w-full aspect-[4/3] sm:aspect-square bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" data-alt="Matte forest-green electric moped hybrid bike with retro round front headlamp, dual-crown black suspension forks, wide tan gumwall fat tires, and brown saddle seat parked outside in California daylight with clear outdoor background" id="mainListingImage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlRBrAKIVeIMf8YEmeJIKsYye6qsZ0Ag4ppFbsjVNexSgj3AiacD_gStl9ppoIt59MZYOcfKtGYN8sRUCfI2zDb7v-jJfs9LcqjJWLqYtQNpXwJyixLvwH0Ay_tMkmhYgYNtQtESqBv8ptk12OWEn6Rs4ZKT_uVDDGYX7GUmYVqJCqVWK4gyj3I8Do9V0vz0-reJV5ZJqM1aSAm5-wrdpdKpagLjdQrl8F3w0Nib4"/>
+<!-- Image Badge & Overlays -->
+<div class="absolute top-space-md left-space-md flex gap-space-xs">
+<span class="inline-flex items-center gap-1 bg-surface-container-lowest/90 backdrop-blur px-2.5 py-1 rounded-full text-on-surface font-label-sm text-label-sm shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span> Verified Item
+          </span>
+</div>
+<div class="absolute bottom-space-md right-space-md">
+<button class="w-10 h-10 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface flex items-center justify-center shadow-md hover:bg-surface-container-lowest transition-colors" title="Zoom in" type="button">
+<span class="material-symbols-outlined text-[20px]">zoom_in</span>
+</button>
+</div>
+</div>
+<!-- Thumbnail Strip -->
+<div class="grid grid-cols-4 gap-space-sm">
+<button class="thumb-btn relative aspect-square rounded-lg overflow-hidden ring-2 ring-primary-container bg-surface-container-lowest focus:outline-none transition-all" type="button">
+<img class="w-full h-full object-cover" data-alt="Close up view of the green electric bike handlebars, throttle display, front circular LED headlamp, and front suspension forks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRFFrRSCvtdqgAFtSDUJ4wgoGDJGPF35RYdDdVwhSNuwKRC1kENIpJAAHkPrL2jMqxZJQtRabug5Iu8kQ_g_ap-LKEoag2TmZvaOgKGwygPi1jh2Yg1228pVtcBTDgg7VgfEC9ONPOonHQFmjbjkybq-4lMtz50fpfqclHHm6qcNoc41vtrHCLdW_BWR_LHpLvJhZo8GD_AyAFlaKBc2oAN5_4M0DUNtwQPYo9g-c"/>
+</button>
+<button class="thumb-btn relative aspect-square rounded-lg overflow-hidden opacity-70 hover:opacity-100 bg-surface-container-lowest focus:outline-none transition-all" type="button">
+<img class="w-full h-full object-cover" data-alt="Side profile shot of the green fat tire ebike showing removable battery pack, frame geometry, and brown faux-leather saddle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABccw7oZBDdjtxvbEV7A_ETzW0YQ8obuiMqSCKzCgwW_JUgGvez0kiGCp-RUdVdnRs80f-kzCbSRpRNRn61ke13Ppx2gLBrJL_Mde0tl2EAnh4B7_52-qQEcP9PwJqDekWJaZo4gFBj5NRd_ANFC-P5Y_4RLIM_zgTJ8NMaeLTZMkWEXTRb7d05PgX4XDliBZ8d-UC_mozqyLWCb3Qc-QFzPwH_ZcSzQPRo1CD648"/>
+</button>
+<button class="thumb-btn relative aspect-square rounded-lg overflow-hidden opacity-70 hover:opacity-100 bg-surface-container-lowest focus:outline-none transition-all" type="button">
+<img class="w-full h-full object-cover" data-alt="Close-up detailed view of the rear disc brake caliper, chainstay, electric hub motor and tan gumwall tread" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqtcdAynlw9d9_D1e1rrGRV4_w9N4P35Ch8edFZelxSd-yu_SBD1d8CDSBCIVaaKIDhEh_QRsvpQWRlu1AxsmrRAAE3OY1VFYvjcFYbOmc6CsANFk5etDCkCEcduaZ-um4mArnFb7FfFAgO2_-pjiL65zvOTBOjix9yr0EkCsh82p044NGeEc9DZ7HevCcaTZFHxe9POjvRuut2mn2cmzpYs_YHj4QViQA-9bJfqI"/>
+</button>
+<button class="thumb-btn relative aspect-square rounded-lg overflow-hidden opacity-70 hover:opacity-100 bg-surface-container-lowest focus:outline-none transition-all" type="button">
+<img class="w-full h-full object-cover" data-alt="The bike battery charger, keys, original owner manual, and included bike lock on a neutral wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGZAUBFSaMm-_vi-J_vPi12yH6MSYnP1wE3TvD0FsdmUb6HIloUrZ9WrN2e6Pcwe0_GErmci8xYRnqYRkWc102T3n7PElsdPuKmBHrnyZEpx0AVXt80G9z4OxDJkkdBpwg8XnF9R-StR_GPP2cX40oAPlba9t5ZFWJliTTS8AniUx3bg4UZooY93BCeUEmdFKTHo1OVbKaN8qRKtMACukQWWvKjdtCtN4cHENczq0"/>
+</button>
+</div>
+<!-- Safety Notice -->
+<div class="bg-surface-container p-space-md rounded-xl flex items-start gap-space-md mt-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-outline shrink-0 mt-0.5 text-[22px]">shield</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Community Safety Tip</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Always meet in a well-lit, public location on campus or near local police stations for pickup. Test the item thoroughly before paying.</p>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Details & Message Box (5 cols on lg) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Top Title & Price Block -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-space-md">
+<div>
+<span class="inline-block px-2.5 py-0.5 mb-2 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">Sporting Goods</span>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Orange Bike for sale</h1>
+<p class="font-headline-xl text-headline-xl text-primary font-bold mt-1">$120</p>
+</div>
+<!-- Share & Save Quick Action Buttons -->
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors flex items-center justify-center text-on-surface" id="saveItemBtn" title="Save listing" type="button">
+<span class="material-symbols-outlined text-[20px]" id="saveIcon">bookmark_border</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors flex items-center justify-center text-on-surface" id="shareItemBtn" title="Share listing" type="button">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-space-md pt-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
+<span>Listed just now</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline">location_on</span>
+<span>in Palo Alto, CA</span>
+</div>
+</div>
+<!-- Description -->
+<div class="pt-space-md mt-space-xs border-t-0 bg-surface-container-low p-space-md rounded-lg">
+<h2 class="font-label-md text-label-md text-on-surface uppercase tracking-wide mb-1">Description</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Good condition. Pick up on campus! Fully tuned with front suspension, fat tires, disc brakes, and battery charger included. Great for commuting between classes.
+          </p>
+</div>
+</div>
+<!-- Seller Information Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h2 class="font-label-md text-label-md text-on-surface uppercase tracking-wide">Seller Information</h2>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded-full">Highly Rated</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary font-headline-md flex items-center justify-center font-bold">
+            GW
+          </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface font-bold truncate">G. Wientjes</span>
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">gwientjes@gmail.com</span>
+<div class="flex items-center gap-1 text-[13px] text-on-surface mt-0.5">
+<span class="text-amber-500 font-bold">★ 5.0</span>
+<span class="text-outline">• Joined in 2021 • Palo Alto, CA</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Message Seller Interactive Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">chat</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Message Seller</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Typically replies in 15 mins</span>
+</div>
+<!-- Success Notification Banner matching reference image -->
+<div class="hidden flex items-start gap-space-sm p-space-md bg-[#e7f7ed] rounded-xl transition-all duration-300" id="successBanner">
+<span class="material-symbols-outlined text-[#1b7f43] text-[20px] shrink-0 mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<p class="font-body-sm text-body-sm font-medium text-[#1b7f43]">
+              Message sent successfully! The seller will receive an email notification.
+            </p>
+<span class="font-label-sm text-label-sm text-[#2e6945] mt-1">Check your inbox for their reply.</span>
+</div>
+</div>
+<!-- Message Form -->
+<form class="flex flex-col gap-space-md" id="messageSellerForm">
+<!-- Buyer Email Input -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface" for="buyerEmail">Your Email</label>
+<input class="w-full px-3.5 py-2.5 bg-surface-container rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="buyerEmail" placeholder="your@email.com" required="" type="email" value="buyer@example.com"/>
+</div>
+<!-- Suggested Quick Message Chips -->
+<div class="flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm text-outline">Quick suggestions:</span>
+<div class="flex flex-wrap gap-1.5">
+<button class="quick-chip px-3 py-1 bg-surface-container hover:bg-primary-fixed text-on-surface hover:text-primary font-label-sm text-label-sm rounded-full transition-colors cursor-pointer text-left" type="button">
+                Is this available?
+              </button>
+<button class="quick-chip px-3 py-1 bg-surface-container hover:bg-primary-fixed text-on-surface hover:text-primary font-label-sm text-label-sm rounded-full transition-colors cursor-pointer text-left" type="button">
+                Is the price negotiable?
+              </button>
+<button class="quick-chip px-3 py-1 bg-surface-container hover:bg-primary-fixed text-on-surface hover:text-primary font-label-sm text-label-sm rounded-full transition-colors cursor-pointer text-left" type="button">
+                Can I pick it up today?
+              </button>
+</div>
+</div>
+<!-- Message Textarea -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface" for="buyerMessage">Message</label>
+<textarea class="w-full px-3.5 py-2.5 bg-surface-container rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container transition-all resize-none" id="buyerMessage" required="" rows="4">Hi! Is this item still available? Can pick up on campus this afternoon.</textarea>
+</div>
+<!-- Submit Button -->
+<button class="w-full py-3 px-space-lg bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg rounded-lg shadow-sm hover:shadow transition-all flex items-center justify-center gap-space-xs active:scale-[0.99]" id="sendBtn" type="submit">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>Send Message</span>
+</button>
+</form>
+<p class="font-label-sm text-label-sm text-center text-outline">
+          Messages are protected by Community Commerce policies.
+        </p>
+</div>
+</div>
+</div>
+<!-- Campus Location Map Card (Secondary anchor below) -->
+<div class="mt-space-xl bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Approximate Location</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Palo Alto, CA • Stanford University Campus Area</p>
+</div>
+<div class="flex items-center gap-1 text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">near_me</span>
+<span>Within 1 mile of campus center</span>
+</div>
+</div>
+<div class="w-full h-56 bg-surface-container rounded-xl bg-cover bg-center overflow-hidden flex items-center justify-center relative" data-location="Stanford University, Palo Alto, CA" style="">
+<div class="bg-surface-container-lowest/90 backdrop-blur px-4 py-2 rounded-full shadow-sm flex items-center gap-2 text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-[20px]">pin_drop</span>
+<span>General pickup zone • Public meeting spot</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const form = document.getElementById('messageSellerForm');
+    const successBanner = document.getElementById('successBanner');
+    const sendBtn = document.getElementById('sendBtn');
+    const messageInput = document.getElementById('buyerMessage');
+    const chips = document.querySelectorAll('.quick-chip');
+    const saveBtn = document.getElementById('saveItemBtn');
+    const saveIcon = document.getElementById('saveIcon');
+    const thumbs = document.querySelectorAll('.thumb-btn');
+    const mainImg = document.getElementById('mainListingImage');
+
+    // Quick chips interaction
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        messageInput.value = chip.textContent.trim();
+        messageInput.focus();
+      });
+    });
+
+    // Form submission simulation
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        sendBtn.disabled = true;
+        sendBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span><span>Sending...</span>';
+        
+        setTimeout(() => {
+          sendBtn.disabled = false;
+          sendBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">send</span><span>Send Message</span>';
+          successBanner.classList.remove('hidden');
+          successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 600);
+      });
+    }
+
+    // Toggle bookmark
+    let isSaved = false;
+    if (saveBtn && saveIcon) {
+      saveBtn.addEventListener('click', () => {
+        isSaved = !isSaved;
+        if (isSaved) {
+          saveIcon.textContent = 'bookmark';
+          saveIcon.classList.add('text-primary');
+          saveIcon.style.fontVariationSettings = "'FILL' 1";
+        } else {
+          saveIcon.textContent = 'bookmark_border';
+          saveIcon.classList.remove('text-primary');
+          saveIcon.style.fontVariationSettings = "'FILL' 0";
+        }
+      });
+    }
+
+    // Thumbnail switching active states
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        thumbs.forEach(t => {
+          t.classList.remove('ring-2', 'ring-primary-container', 'opacity-100');
+          t.classList.add('opacity-70');
+        });
+        thumb.classList.remove('opacity-70');
+        thumb.classList.add('ring-2', 'ring-primary-container', 'opacity-100');
+      });
+    });
+  })();
+</script></main><footer class="w-full bg-surface-container-lowest py-space-xl mt-space-xl"><div class="w-full px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm"><div class="flex items-center gap-space-lg"><span class="font-label-md text-label-md text-on-surface">Marketplace © 2025</span><a class="hover:text-on-surface transition-colors" href="#">Privacy</a><a class="hover:text-on-surface transition-colors" href="#">Terms</a><a class="hover:text-on-surface transition-colors" href="#">Advertising</a><a class="hover:text-on-surface transition-colors" href="#">Help Center</a></div><div class="text-outline font-label-sm text-label-sm">Meta Platforms • Community Commerce</div></div></footer></body></html>
