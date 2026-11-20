@@ -85,3 +85,13 @@ export async function submitListingMessage(input: {
     })
   );
 }
+
+export async function createCheckoutSession(listingId: string, buyerEmail?: string): Promise<{ url: string }> {
+  return readResponse<{ url: string }>(
+    await fetch('/api/checkout', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ listing_id: listingId, buyer_email: buyerEmail || undefined }),
+    })
+  );
+}

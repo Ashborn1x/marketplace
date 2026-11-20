@@ -9,6 +9,7 @@ import {
 } from '../../../lib/marketplace-validation';
 import { getSupabaseClient } from '../../../lib/supabase';
 import type { ListingRow } from '../../../types/database';
+import { getOnboardedSellerEmails } from '../../../lib/listing-availability';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -65,6 +66,7 @@ export async function GET(request: Request) {
   }
 
   const rows = (data ?? []) as ListingRow[];
+  const onboardedSellerEmails = await getOnboardedSellerEmails();
   const filtered = query
     ? rows.filter((row) =>
         `${row.title} ${row.description} ${row.category} ${row.location}`
@@ -73,7 +75,10 @@ export async function GET(request: Request) {
       )
     : rows;
 
-  return NextResponse.json(filtered.map(toMarketplaceListing));
+  return NextResponse.json(filtered.map((row) => toMarketplaceListing({
+    ...row,
+    seller_onboarded: onboardedSellerEmails.has(row.seller_email.toLowerCase()),
+  } as ListingRow)));
 }
 
 export async function POST(request: Request) {
@@ -94,7 +99,7 @@ export async function POST(request: Request) {
 
   const title = String(formData.get('title') ?? '').trim();
   const description = String(formData.get('description') ?? '').trim();
-  const sellerEmail = String(formData.get('seller_email') ?? '').trim();
+  const sellerEmail = String(formData.get('seller_email') ?? '').trim().toLowerCase();
   const category = String(formData.get('category') ?? '').trim();
   const location = String(formData.get('location') ?? '').trim();
   const condition = String(formData.get('condition') ?? '').trim();

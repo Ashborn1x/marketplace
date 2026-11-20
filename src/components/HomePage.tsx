@@ -23,6 +23,7 @@ interface HomePageProps {
   savedIds: string[];
   onToggleSave: (id: string) => void;
   onSelectListing: (listing: Listing) => void;
+  onBuyNow: (listing: Listing) => Promise<void>;
   onNavigate: (route: RouteView) => void;
   onSearchToBrowse: (query: string, category?: string) => void;
   locationLabel: string;
@@ -38,6 +39,7 @@ export function HomePage({
   savedIds,
   onToggleSave,
   onSelectListing,
+  onBuyNow,
   onNavigate,
   onSearchToBrowse,
   locationLabel,
@@ -280,6 +282,20 @@ export function HomePage({
                       <p className="text-[13px] leading-[18px] text-[#727687]">
                         {item.location}
                       </p>
+                      {item.status === 'sold' ? (
+                        <span className="mt-2 inline-flex text-[12px] font-bold text-[#727687]">Sold</span>
+                      ) : item.canPurchase ? (
+                        <button
+                          type="button"
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            void onBuyNow(item);
+                          }}
+                          className="mt-2 w-full h-9 bg-[#0866ff] hover:bg-[#0050cd] text-white text-[12px] font-bold rounded-lg cursor-pointer"
+                        >
+                          Buy Now
+                        </button>
+                      ) : null}
                     </div>
                   </div>
                 </article>

@@ -5,6 +5,7 @@ export type RouteView =
   | 'listing-detail'
   | 'notifications'
   | 'inbox'
+  | 'profile'
   | 'your-listings';
 
 export type ItemCondition = 'New' | 'Like New' | 'Good' | 'Fair';
@@ -41,6 +42,8 @@ export interface Listing {
   freeDelivery?: boolean;
   offersShipping?: boolean;
   isUserOwned?: boolean;
+  status?: 'active' | 'sold';
+  canPurchase?: boolean;
 }
 
 export interface DraftListing {

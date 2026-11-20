@@ -89,11 +89,11 @@ export function Header({
 
           <button
             type="button"
-            onClick={() => onNavigate('your-listings')}
-            title="Your listings & saved items"
-            aria-label="Your listings and profile"
+            onClick={() => onNavigate('profile')}
+            title="Seller profile"
+            aria-label="Seller profile"
             className={`cursor-pointer rounded-full p-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0866ff] ${
-              activeRoute === 'your-listings'
+              activeRoute === 'profile'
                 ? 'ring-2 ring-[#0866ff]'
                 : 'hover:opacity-90'
             }`}

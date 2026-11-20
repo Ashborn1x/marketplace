@@ -10,6 +10,7 @@ export interface ListingRow {
   location: string;
   condition: string;
   created_at: string;
+  status?: 'active' | 'sold';
 }
 
 export interface MessageRow {

@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { toMarketplaceListing } from '../../../../lib/listing-mapper';
 import { getSupabaseClient } from '../../../../lib/supabase';
 import type { ListingRow } from '../../../../types/database';
+import { getOnboardedSellerEmails } from '../../../../lib/listing-availability';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -38,7 +39,11 @@ export async function GET(
     return NextResponse.json({ error: 'This listing could not be found.' }, { status: 404 });
   }
 
-  return NextResponse.json(toMarketplaceListing(data as ListingRow));
+  const onboardedSellerEmails = await getOnboardedSellerEmails();
+  return NextResponse.json(toMarketplaceListing({
+    ...(data as ListingRow),
+    seller_onboarded: onboardedSellerEmails.has(String(data.seller_email).toLowerCase()),
+  } as ListingRow));
 }
 
 export async function DELETE(

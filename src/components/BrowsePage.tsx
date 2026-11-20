@@ -24,6 +24,7 @@ interface BrowsePageProps {
   savedIds: string[];
   onToggleSave: (id: string) => void;
   onSelectListing: (listing: Listing) => void;
+  onBuyNow: (listing: Listing) => Promise<void>;
   onNavigate: (route: RouteView) => void;
   onSearchListings: (query: string, category?: string) => void;
   initialQuery: string;
@@ -50,6 +51,7 @@ export function BrowsePage({
   savedIds,
   onToggleSave,
   onSelectListing,
+  onBuyNow,
   onNavigate,
   onSearchListings,
   initialQuery,
@@ -616,6 +618,20 @@ export function BrowsePage({
                     <h3 className="text-[15px] leading-[20px] text-[#191c1e] truncate group-hover:text-[#0050cd] transition-colors">
                       {item.title}
                     </h3>
+                    {item.status === 'sold' ? (
+                      <span className="mt-2 inline-flex text-[12px] font-bold text-[#727687]">Sold</span>
+                    ) : item.canPurchase ? (
+                      <button
+                        type="button"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          void onBuyNow(item);
+                        }}
+                        className="mt-2 w-full h-9 bg-[#0866ff] hover:bg-[#0050cd] text-white text-[12px] font-bold rounded-lg cursor-pointer"
+                      >
+                        Buy Now
+                      </button>
+                    ) : null}
                     <div className="text-[13px] text-[#727687] truncate">
                       {item.listedLabel} • {item.location}
                     </div>

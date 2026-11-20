@@ -66,5 +66,7 @@ export function toMarketplaceListing(row: ListingRow): Listing {
       location: row.location,
       replyTime: 'Replies directly by email',
     },
+    status: row.status ?? 'active',
+    canPurchase: Boolean((row as ListingRow & { seller_onboarded?: boolean }).seller_onboarded) && (row.status ?? 'active') === 'active',
   };
 }

@@ -29,6 +29,7 @@ interface ListingDetailPageProps {
     text: string
   ) => Promise<void>;
   onOpenInbox: () => void;
+  onBuyNow: (listing: Listing) => Promise<void>;
   onZoomImage: (src: string, alt: string) => void;
 }
 
@@ -45,6 +46,7 @@ export function ListingDetailPage({
   onBack,
   onSendMessage,
   onOpenInbox,
+  onBuyNow,
   onZoomImage,
 }: ListingDetailPageProps) {
   const gallery =
@@ -67,6 +69,8 @@ export function ListingDetailPage({
   const [sentSuccess, setSentSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [copiedShare, setCopiedShare] = useState(false);
+  const [buying, setBuying] = useState(false);
+  const [buyError, setBuyError] = useState<string | null>(null);
 
   const activeImage = gallery[activeThumbIdx] || listing.images[0];
 
@@ -95,6 +99,17 @@ export function ListingDetailPage({
     }
     setCopiedShare(true);
     setTimeout(() => setCopiedShare(false), 2000);
+  };
+
+  const handleBuyNow = async () => {
+    setBuying(true);
+    setBuyError(null);
+    try {
+      await onBuyNow(listing);
+    } catch (error) {
+      setBuyError(error instanceof Error ? error.message : 'Checkout could not be started.');
+      setBuying(false);
+    }
   };
 
   return (
@@ -258,6 +273,27 @@ export function ListingDetailPage({
               <p className="text-[15px] text-[#424656] leading-relaxed whitespace-pre-wrap">
                 {listing.description}
               </p>
+            </div>
+
+            <div className="bg-white border border-[#dbe1ff] p-4 rounded-xl shadow-sm">
+              {listing.status === 'sold' ? (
+                <p className="text-[15px] font-bold text-[#727687]">Sold</p>
+              ) : listing.canPurchase ? (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => void handleBuyNow()}
+                    disabled={buying}
+                    className="w-full h-11 inline-flex items-center justify-center gap-2 bg-[#0866ff] hover:bg-[#0050cd] disabled:opacity-60 text-white font-semibold text-[15px] rounded-lg cursor-pointer"
+                  >
+                    {buying ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
+                    {buying ? 'Opening Checkout…' : `Buy Now for ${listing.currency}${listing.price.toLocaleString('en-US')}`}
+                  </button>
+                  {buyError && <p role="alert" className="mt-2 text-[13px] font-semibold text-[#ba1a1a]">{buyError}</p>}
+                </>
+              ) : (
+                <p className="text-[13px] font-semibold text-[#727687]">Seller onboarding is required before this item can be purchased.</p>
+              )}
             </div>
           </div>
 

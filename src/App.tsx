@@ -20,6 +20,7 @@ import {
   deleteListing,
   fetchListing,
   fetchListings,
+  createCheckoutSession,
   submitListingMessage,
   type NewListingInput,
 } from './lib/marketplace-api';
@@ -32,6 +33,8 @@ import { ListingDetailPage } from './components/ListingDetailPage';
 import { NotificationsPage } from './components/NotificationsPage';
 import { InboxPage } from './components/InboxPage';
 import { YourListingsPage } from './components/YourListingsPage';
+import { SellerProfilePage } from './components/SellerProfilePage';
+import { CheckoutResultPage } from './components/CheckoutResultPage';
 import { ToastNotification } from './components/ToastNotification';
 import { ListingDetailSkeleton } from './components/ui/LoadingSkeleton';
 import {
@@ -97,6 +100,12 @@ export default function App() {
     title: string;
     listingId?: string;
   }>({ visible: false, title: 'Bike for sale' });
+  const [checkoutResult, setCheckoutResult] = useState<'success' | 'cancelled' | null>(null);
+
+  useEffect(() => {
+    const result = new URLSearchParams(window.location.search).get('checkout');
+    if (result === 'success' || result === 'cancelled') setCheckoutResult(result);
+  }, []);
 
   useEffect(() => {
     setCreatedListingIds(loadStored('mp_created_listing_ids_v1', []));
@@ -316,6 +325,11 @@ export default function App() {
     });
   };
 
+  const handleBuyNow = async (listing: Listing) => {
+    const { url } = await createCheckoutSession(listing.id);
+    window.location.assign(url);
+  };
+
   const handleSendMessage = async (
     listing: Listing,
     buyerEmail: string,
@@ -423,6 +437,18 @@ export default function App() {
       />
 
       <main className="flex-1 w-full pt-16">
+        {checkoutResult && (
+          <CheckoutResultPage
+            result={checkoutResult}
+            onContinue={() => {
+              setCheckoutResult(null);
+              window.history.replaceState({}, '', '/');
+              navigateTo('home');
+            }}
+          />
+        )}
+        {!checkoutResult && (
+          <>
         {listingsError && (activeRoute === 'home' || activeRoute === 'browse') && (
           <p role="alert" className="max-w-7xl mx-auto px-4 sm:px-8 py-3 text-sm font-semibold text-[#ba1a1a]">
             {listingsError}
@@ -435,6 +461,7 @@ export default function App() {
             savedIds={savedIds}
             onToggleSave={handleToggleSave}
             onSelectListing={handleSelectListing}
+            onBuyNow={handleBuyNow}
             onNavigate={navigateTo}
             onSearchToBrowse={handleSearchToBrowse}
             locationLabel={locationLabel}
@@ -461,6 +488,7 @@ export default function App() {
             savedIds={savedIds}
             onToggleSave={handleToggleSave}
             onSelectListing={handleSelectListing}
+            onBuyNow={handleBuyNow}
             onNavigate={navigateTo}
             onSearchListings={handleSearchToBrowse}
             initialQuery={browseQuery}
@@ -499,6 +527,7 @@ export default function App() {
             }
             onSendMessage={handleSendMessage}
             onOpenInbox={() => navigateTo('inbox')}
+            onBuyNow={handleBuyNow}
             onZoomImage={(src, alt) => setZoomImage({ src, alt })}
           />
         )}
@@ -561,6 +590,10 @@ export default function App() {
             onDeleteListing={handleDeleteListing}
             deletableListingIds={Object.keys(listingOwnerTokens)}
           />
+        )}
+
+        {activeRoute === 'profile' && <SellerProfilePage />}
+          </>
         )}
       </main>
 
